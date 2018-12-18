@@ -24,6 +24,9 @@ import com.test.handler.TestHandlerActivity;
 import com.test.net.TestNetActivity;
 import com.test.nsd.TestNsdActivity;
 import com.test.opengles.OpenglesActivity01;
+import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
+import com.test.regex.RegexActivity;
+import com.test.swiperefresh.SwipeRefreshActivity;
 import com.test.xml.TestXmlActivity;
 
 import java.util.ArrayList;
@@ -62,56 +65,63 @@ public class MainActivity extends Activity {
     @OnClick(value = {R.id.textview_next_page, R.id.textview_testactivity, R.id.textview_testcamera,
     R.id.textview_testhandler, R.id.textview_testbitmap, R.id.textview_testopengles,
     R.id.textview_testanimation, R.id.textview_testnsd, R.id.textview_testnet,
-    R.id.textview_testxml, R.id.textview_testfullscreen, R.id.textview_testimg})
+    R.id.textview_testxml, R.id.textview_testfullscreen, R.id.textview_testimg,
+    R.id.textview_testswiperefresh, R.id.textview_testrefreshandloadmore,
+    R.id.textview_testregex})
     private void onClick(View view){
         switch (view.getId()){
-            case R.id.textview_next_page:
-                startActivity(new Intent(MainActivity.this, TestHandlerActivity.class));
+            case R.id.textview_testregex:
+                startActivity(new Intent(MainActivity.this, RegexActivity.class));
                 break;
-            case R.id.textview_testactivity:
-                startActivity(new Intent(MainActivity.this, TestActivityActivity.class));
+            case R.id.textview_testrefreshandloadmore:
+                startActivity(new Intent(MainActivity.this, RefreshAndLoadMoreActivity.class));
                 break;
-            case R.id.textview_testcamera:
-                startActivity(new Intent(MainActivity.this, CameraActivity.class));
+            case R.id.textview_testswiperefresh:
+                startActivity(new Intent(MainActivity.this, SwipeRefreshActivity.class));
                 break;
-            case R.id.textview_testhandler:
-                startActivity(new Intent(MainActivity.this, TestHandlerActivity2.class));
-                break;
-            case R.id.textview_testbitmap:
-                startActivity(new Intent(MainActivity.this, TestBitmapActivity.class));
-                break;
-            case R.id.textview_testopengles:
-                startActivity(new Intent(MainActivity.this, OpenglesActivity01.class));
-                break;
-            case R.id.textview_testanimation:
-                startActivity(new Intent(MainActivity.this, TestAnimationActivity.class));
-                break;
-            case R.id.textview_testnsd:
-                startActivity(new Intent(MainActivity.this, TestNsdActivity.class));
-                break;
-            case R.id.textview_testnet:
-                startActivity(new Intent(MainActivity.this, TestNetActivity.class));
-                break;
-            case R.id.textview_testxml:
-                startActivity(new Intent(MainActivity.this, TestXmlActivity.class));
+            case R.id.textview_testimg:
+                startActivity(new Intent(MainActivity.this, TestImgActivity.class));
                 break;
             case R.id.textview_testfullscreen:
                 if(options != getWindow().getDecorView().getSystemUiVisibility()) {
                     getWindow().getDecorView().setSystemUiVisibility(options);
                 }else {
-                    /*int o = View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;*/
                     int o = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                             View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
                     getWindow().getDecorView().setSystemUiVisibility(o);
                 }
                 break;
-            case R.id.textview_testimg:
-                startActivity(new Intent(MainActivity.this, TestImgActivity.class));
+            case R.id.textview_testxml:
+                startActivity(new Intent(MainActivity.this, TestXmlActivity.class));
                 break;
+            case R.id.textview_testnet:
+                startActivity(new Intent(MainActivity.this, TestNetActivity.class));
+                break;
+            case R.id.textview_testnsd:
+                startActivity(new Intent(MainActivity.this, TestNsdActivity.class));
+                break;
+            case R.id.textview_testanimation:
+                startActivity(new Intent(MainActivity.this, TestAnimationActivity.class));
+                break;
+            case R.id.textview_testopengles:
+                startActivity(new Intent(MainActivity.this, OpenglesActivity01.class));
+                break;
+            case R.id.textview_testbitmap:
+                startActivity(new Intent(MainActivity.this, TestBitmapActivity.class));
+                break;
+            case R.id.textview_testhandler:
+                startActivity(new Intent(MainActivity.this, TestHandlerActivity2.class));
+                break;
+            case R.id.textview_testcamera:
+                startActivity(new Intent(MainActivity.this, CameraActivity.class));
+                break;
+            case R.id.textview_testactivity:
+                startActivity(new Intent(MainActivity.this, TestActivityActivity.class));
+                break;
+            case R.id.textview_next_page:
+                startActivity(new Intent(MainActivity.this, TestHandlerActivity.class));
+                break;
+
         }
     }
 
@@ -119,6 +129,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         Log.d("TestActivity", "MainActivity");
+        getWindow().getDecorView().setSystemUiVisibility(options);
         /*System.out.println(TAG + "," + nextPage.getWidth());
         nextPage.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
 

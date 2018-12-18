@@ -22,11 +22,9 @@
     <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -54,7 +52,10 @@
         <activity android:name="com.test.nsd.TestNsdActivity" />
         <activity android:name="com.test.net.TestNetActivity" />
         <activity android:name="com.test.xml.TestXmlActivity" />
-        <activity android:name="com.test.circlepic.TestImgActivity"></activity>
+        <activity android:name="com.test.circlepic.TestImgActivity" />
+        <activity android:name="com.test.swiperefresh.SwipeRefreshActivity" />
+        <activity android:name="com.test.refreshandloadmore.RefreshAndLoadMoreActivity" />
+        <activity android:name="com.test.regex.RegexActivity"></activity>
     </application>
 
 </manifest>

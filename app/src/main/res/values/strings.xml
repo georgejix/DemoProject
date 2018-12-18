@@ -2,4 +2,6 @@
     <string name="app_name">TestHandler</string>
     <string name="page_title">Newest StackOverflow questions tagged \'android\'</string>
     <string name="updated">Last updated:</string>
+    <string name="load_completed">已经全部加载完成</string>
+    <string name="loading">正在加载</string>
 </resources>
