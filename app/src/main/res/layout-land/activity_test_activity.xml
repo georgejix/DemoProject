@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mplanet.testhandler.com.test.activity.TestActivityActivity"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/textview_test"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal"
+        android:text="test"/>
+    <TextView
+        android:id="@+id/textview_test_pop"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal"
+        android:text="testpop"/>
+    <EditText
+        android:id="@+id/edittext_t1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal"
+        android:background="@null"/>
+</LinearLayout>

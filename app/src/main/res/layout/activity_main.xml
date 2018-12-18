@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mplanet.testhandler.MainActivity"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    android:background="#2cc">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/textview_next_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="测试handler"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testactivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="activity生命周期，pop"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testcamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="camera预览"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testhandler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="测试等待锁"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testbitmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="bitmap加载显示"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testopengles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="opengles画图"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testanimation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="animation动画"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testnsd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="nsd开启，搜索"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testnet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="wifi,蜂窝判断，有网无网"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testxml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="XmlPull解析xml"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testfullscreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="隐藏系统栏，状态栏"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testimg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="圆形img"
+                android:textSize="25sp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

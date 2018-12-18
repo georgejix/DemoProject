@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mplanet.testhandler.com.test.circlepic.TestImgActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    <ImageView
+        android:id="@+id/img01"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <com.test.circlepic.RoundLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        app:roundLayoutRadius="10dp">
+        <ImageView
+            android:id="@+id/img02"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_height="50dp"
+            android:src="@mipmap/pic4"/>
+        <com.test.circlepic.RoundView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/pic3"/>
+        </com.test.circlepic.RoundLayout>
+</LinearLayout>

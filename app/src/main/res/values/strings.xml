@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestHandler</string>
+    <string name="page_title">Newest StackOverflow questions tagged \'android\'</string>
+    <string name="updated">Last updated:</string>
+</resources>
