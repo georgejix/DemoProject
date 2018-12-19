@@ -166,6 +166,26 @@
                 android:paddingBottom="10dp"
                 android:text="正则表达式"
                 android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testmotionevent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="触摸事件监听"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_testvelocitytracker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="触摸事件监听速度"
+                android:textSize="25sp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

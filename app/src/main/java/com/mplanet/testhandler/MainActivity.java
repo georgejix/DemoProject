@@ -27,6 +27,8 @@ import com.test.opengles.OpenglesActivity01;
 import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
 import com.test.regex.RegexActivity;
 import com.test.swiperefresh.SwipeRefreshActivity;
+import com.test.touchevent.TouchEventActivity;
+import com.test.touchevent.VelocityTrackerActivity;
 import com.test.xml.TestXmlActivity;
 
 import java.util.ArrayList;
@@ -67,9 +69,15 @@ public class MainActivity extends Activity {
     R.id.textview_testanimation, R.id.textview_testnsd, R.id.textview_testnet,
     R.id.textview_testxml, R.id.textview_testfullscreen, R.id.textview_testimg,
     R.id.textview_testswiperefresh, R.id.textview_testrefreshandloadmore,
-    R.id.textview_testregex})
+    R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker})
     private void onClick(View view){
         switch (view.getId()){
+            case R.id.textview_testvelocitytracker:
+                startActivity(new Intent(MainActivity.this, VelocityTrackerActivity.class));
+                break;
+            case R.id.textview_testmotionevent:
+                startActivity(new Intent(MainActivity.this, TouchEventActivity.class));
+                break;
             case R.id.textview_testregex:
                 startActivity(new Intent(MainActivity.this, RegexActivity.class));
                 break;

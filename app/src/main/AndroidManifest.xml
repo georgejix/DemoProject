@@ -55,7 +55,9 @@
         <activity android:name="com.test.circlepic.TestImgActivity" />
         <activity android:name="com.test.swiperefresh.SwipeRefreshActivity" />
         <activity android:name="com.test.refreshandloadmore.RefreshAndLoadMoreActivity" />
-        <activity android:name="com.test.regex.RegexActivity"></activity>
+        <activity android:name="com.test.regex.RegexActivity" />
+        <activity android:name="com.test.touchevent.TouchEventActivity" />
+        <activity android:name="com.test.touchevent.VelocityTrackerActivity"></activity>
     </application>
 
 </manifest>
