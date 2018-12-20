@@ -21,6 +21,7 @@ import com.test.camera.CameraActivity;
 import com.test.circlepic.TestImgActivity;
 import com.test.countdownlatch.TestHandlerActivity2;
 import com.test.handler.TestHandlerActivity;
+import com.test.keyboardinput.InputActivity;
 import com.test.net.TestNetActivity;
 import com.test.nsd.TestNsdActivity;
 import com.test.opengles.OpenglesActivity01;
@@ -69,9 +70,13 @@ public class MainActivity extends Activity {
     R.id.textview_testanimation, R.id.textview_testnsd, R.id.textview_testnet,
     R.id.textview_testxml, R.id.textview_testfullscreen, R.id.textview_testimg,
     R.id.textview_testswiperefresh, R.id.textview_testrefreshandloadmore,
-    R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker})
+    R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker,
+    R.id.textview_testinput})
     private void onClick(View view){
         switch (view.getId()){
+            case R.id.textview_testinput:
+                startActivity(new Intent(MainActivity.this, InputActivity.class));
+                break;
             case R.id.textview_testvelocitytracker:
                 startActivity(new Intent(MainActivity.this, VelocityTrackerActivity.class));
                 break;

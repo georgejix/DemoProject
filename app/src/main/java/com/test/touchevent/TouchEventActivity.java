@@ -1,6 +1,7 @@
 package com.test.touchevent;
 
 import android.app.Activity;
+import android.graphics.Rect;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,9 +13,13 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.TouchDelegate;
 import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -50,7 +55,9 @@ public class TouchEventActivity extends Activity {
                 }
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        Log.d(TAG, "down");
+                        ViewConfiguration vc = ViewConfiguration.get(v.getContext());
+                        int mSlop = vc.getScaledTouchSlop();
+                        Log.d(TAG, "down " + mSlop);
                         //如果action_down返回false,OnTouchListener则将不再接收到后续事件，而由activity.onTouchEvent接收
                         //如果某一事件返回true,则activity.onTouchEvent不会接收到该事件
                         return true;
@@ -66,6 +73,20 @@ public class TouchEventActivity extends Activity {
         });
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
 
+        //扩大view的touchevent响应区域
+        test1TextView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Rect rect = new Rect();
+                test1TextView.getHitRect(rect);
+                rect.right += 300;
+                rect.left -=300;
+                rect.top -= 300;
+                rect.bottom += 300;
+                TouchDelegate touchDelegate = new TouchDelegate(rect, test1TextView);
+                ((View)test1TextView.getParent()).setTouchDelegate(touchDelegate);
+            }
+        });
     }
 
     class MyGestureListener implements GestureDetector.OnGestureListener {
@@ -202,6 +223,7 @@ public class TouchEventActivity extends Activity {
 
     //关闭popupWindow.setOutsideTouchable，重写此方法，否则pop显示情况下点击+，pop不会消失
     public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.d("touchevent:", "activity dispatchTouchEvent");
         if(null != ev && ev.getAction() == MotionEvent.ACTION_DOWN) {
             if (!isFinishing() && !isDestroyed()) {
                 if (popupWindow != null && popupWindow.isShowing()) {
@@ -223,6 +245,11 @@ public class TouchEventActivity extends Activity {
             }
         }
         return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return super.onKeyDown(keyCode, event);
     }
 
     public float dp2px(int dp) {

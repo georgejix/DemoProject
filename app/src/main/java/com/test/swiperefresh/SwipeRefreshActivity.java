@@ -21,7 +21,7 @@ import java.util.List;
 public class SwipeRefreshActivity extends Activity {
 
     @ViewInject(R.id.listview)
-    private ListView listView;
+    private MyListView listView;
     @ViewInject(R.id.swipe_container)
     private SwipeRefreshLayout swipeLayout;
 
