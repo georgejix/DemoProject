@@ -1,0 +1,21 @@
+android官方文档：
+http://hukai.me/android-training-course-in-chinese/best-background.html
+
+vps:
+http://blog.csdn.net/blackfrog_unique/article/details/60320737
+https://www.textarea.com/ExpectoPatronum/shiyong-shadowsocks-kexue-shangwang-265/
+{
+    "server":"your_server_ip",
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "port_password":{
+        "8989":"password0",
+        "9001":"password1",
+        "9002":"password2",
+        "9003":"password3",
+        "9004":"password4"
+    },
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "fast_open": false
+}
