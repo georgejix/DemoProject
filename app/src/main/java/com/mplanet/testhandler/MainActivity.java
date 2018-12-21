@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -20,7 +21,9 @@ import com.test.bitmap.TestBitmapActivity;
 import com.test.camera.CameraActivity;
 import com.test.circlepic.TestImgActivity;
 import com.test.countdownlatch.TestHandlerActivity2;
+import com.test.deviceawake.DeviceAwakeActivity;
 import com.test.handler.TestHandlerActivity;
+import com.test.intentservice.RSSPullService;
 import com.test.keyboardinput.InputActivity;
 import com.test.net.TestNetActivity;
 import com.test.nsd.TestNsdActivity;
@@ -28,6 +31,7 @@ import com.test.opengles.OpenglesActivity01;
 import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
 import com.test.regex.RegexActivity;
 import com.test.swiperefresh.SwipeRefreshActivity;
+import com.test.systemphoto.ThumbnailActivity;
 import com.test.touchevent.TouchEventActivity;
 import com.test.touchevent.VelocityTrackerActivity;
 import com.test.xml.TestXmlActivity;
@@ -71,9 +75,21 @@ public class MainActivity extends Activity {
     R.id.textview_testxml, R.id.textview_testfullscreen, R.id.textview_testimg,
     R.id.textview_testswiperefresh, R.id.textview_testrefreshandloadmore,
     R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker,
-    R.id.textview_testinput})
+    R.id.textview_testinput, R.id.textview_testintentservice, R.id.textview_testsystemphoto,
+    R.id.textview_testdeviceawake})
     private void onClick(View view){
         switch (view.getId()){
+            case R.id.textview_testdeviceawake:
+                startActivity(new Intent(MainActivity.this, DeviceAwakeActivity.class));
+                break;
+            case R.id.textview_testsystemphoto:
+                startActivity(new Intent(MainActivity.this, ThumbnailActivity.class));
+                break;
+            case R.id.textview_testintentservice:
+                Intent rssPullServiceIntent = new Intent(MainActivity.this, RSSPullService.class);
+                rssPullServiceIntent.setData(Uri.parse("www.baidu.com"));
+                startService(rssPullServiceIntent);
+                break;
             case R.id.textview_testinput:
                 startActivity(new Intent(MainActivity.this, InputActivity.class));
                 break;

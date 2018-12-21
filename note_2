@@ -1,0 +1,17 @@
+receiver添加过滤器用于接收隐式广播，没有过滤器的广播，就接收不到隐式广播，但是可以显示调用
+
+onTrimMemory TRIM_MEMORY_RUNNING_MODERATE：你的app正在运行并且不会被列为可杀死的。但是设备此时正运行于低内存状态下，系统开始触发杀死LRU Cache中的Process的机制。
+             TRIM_MEMORY_RUNNING_LOW：你的app正在运行且没有被列为可杀死的。但是设备正运行于更低内存的状态下，你应该释放不用的资源用来提升系统性能（但是这也会直接影响到你的app的性能）。
+             TRIM_MEMORY_RUNNING_CRITICAL：你的app仍在运行，但是系统已经把LRU Cache中的大多数进程都已经杀死，因此你应该立即释放所有非必须的资源。如果系统不能回收到足够的RAM数量，系统将会清除所有的LRU缓存中的进程，并且开始杀死那些之前被认为不应该杀死的进程，例如那个包含了一个运行态Service的进程。
+
+SparseArray, SparseBooleanArray, 与 LongSparseArray
+
+zipalign
+
+<service android:name=".PlaybackService"
+         android:process=":background" />
+
+layout: include merge ViewStub
+
+// 把当前的线程变成后台执行的线程
+android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);

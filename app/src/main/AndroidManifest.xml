@@ -26,6 +26,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
+    <!-- 唤醒锁-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -58,10 +61,27 @@
         <activity android:name="com.test.regex.RegexActivity" />
         <activity android:name="com.test.touchevent.TouchEventActivity" />
         <activity android:name="com.test.touchevent.VelocityTrackerActivity" />
-        <activity android:name="com.test.keyboardinput.InputActivity"
+        <activity
+            android:name="com.test.keyboardinput.InputActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <service
+            android:name="com.test.intentservice.RSSPullService"
+            android:exported="false" />
+
+        <activity android:name="com.test.systemphoto.ThumbnailActivity" />
+        <activity android:name="com.test.deviceawake.DeviceAwakeActivity"></activity>
+
+        <service android:name="com.test.deviceawake.MyIntentService"/>
+        <receiver android:name="com.test.deviceawake.AlarmReceiver">
+            </receiver>
+        <receiver android:name="com.test.deviceawake.SampleBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
