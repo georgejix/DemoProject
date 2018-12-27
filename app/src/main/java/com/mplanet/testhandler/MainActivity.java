@@ -66,7 +66,6 @@ public class MainActivity extends Activity {
                 Log.d(TAG, "OnSystemUiVisibilityChangeListener");
             }
         });
-
     }
 
     @OnClick(value = {R.id.textview_next_page, R.id.textview_testactivity, R.id.textview_testcamera,
