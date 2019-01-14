@@ -28,3 +28,6 @@ Git中.gitignore文件不起作用的解决以及Git中的忽略规则介绍
 git rm -r --cached .
 git add .
 git commit -m 'update .gitignore'
+
+//ffmpeg build for android
+https://www.jianshu.com/p/228f38e9aa9c

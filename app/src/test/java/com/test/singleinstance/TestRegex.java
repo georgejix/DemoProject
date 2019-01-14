@@ -26,6 +26,7 @@ public class TestRegex {
 		 //main.test01();
 		 System.out.println(main.operateOnResultStr("http://www.anjugroup.cn/open?sn=WAT025353000000000000001"));
 		 System.out.println(main.operateOnResultStr("http://www.anjugroup.cn/WAT01?sn=CXAA18CAA0101080#"));
+		System.out.println(selectNumber("130 1300 1300"));
 	 }
 
 	 private String testZhongWen(String str) {
@@ -83,4 +84,11 @@ public class TestRegex {
 				e.printStackTrace();
 			}
 	 }
+
+	private String selectNumber(String s) {
+		if(null != s) {
+			return s.replaceAll("[^0-9]", "");
+		}
+		return s;
+	}
 }

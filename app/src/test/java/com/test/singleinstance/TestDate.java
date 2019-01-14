@@ -20,10 +20,22 @@ public class TestDate {
 	@Test
 	public void main() {
 		// TODO Auto-generated method stub
-		TestDate t = new TestDate();
-		t.t1();
-		t.t2();
-		t.t3();
+		//TestDate t = new TestDate();
+		//t.t1();
+		//t.t2();
+		//t.t3();
+		System.out.println(getSeconds("2019-01-09 01:05:53"));
+	}
+
+
+	private long getSeconds(String time) {
+		long seconds = 0;
+		try {
+			time = time.substring(time.indexOf(" ") + 1);
+			String times[] = time.split(":");
+			seconds = Long.parseLong(times[0]) * 60 * 60 + Long.parseLong(times[1]) * 60 + Long.parseLong(times[2]);
+		}catch (Exception e){}
+		return seconds;
 	}
 	
 	private void t1() {

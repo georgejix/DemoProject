@@ -2,6 +2,8 @@ package com.test.singleinstance; /**
  * 
  */
 
+import org.junit.Test;
+
 /**
  * @brief 
  * @details
@@ -9,5 +11,29 @@ package com.test.singleinstance; /**
  *
  */
 public class A{
+    interface Interface1{
+        void a();
+    }
+    interface Interface2{
+        void a();
+    }
+    class BB implements Interface1, Interface2{
 
+        @Override
+        public void a() {
+            System.out.println("aaaaaaa");
+        }
+    }
+    void test1(Interface1 i){
+        i.a();
+    }
+    void test2(Interface2 i){
+        i.a();
+    }
+    @Test
+    public void main(){
+        BB bb = new BB();
+        test1(bb);
+        test2(bb);
+    }
 }
