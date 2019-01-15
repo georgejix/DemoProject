@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.jni.JniTest;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.event.OnClick;
@@ -75,9 +76,13 @@ public class MainActivity extends Activity {
     R.id.textview_testswiperefresh, R.id.textview_testrefreshandloadmore,
     R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker,
     R.id.textview_testinput, R.id.textview_testintentservice, R.id.textview_testsystemphoto,
-    R.id.textview_testdeviceawake})
+    R.id.textview_testdeviceawake, R.id.textview_testjni})
     private void onClick(View view){
         switch (view.getId()){
+            case R.id.textview_testjni:
+                JniTest j = new JniTest();
+                j.test();
+                break;
             case R.id.textview_testdeviceawake:
                 startActivity(new Intent(MainActivity.this, DeviceAwakeActivity.class));
                 break;
