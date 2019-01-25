@@ -6,9 +6,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
@@ -23,6 +24,7 @@ import com.test.camera.CameraActivity;
 import com.test.circlepic.TestImgActivity;
 import com.test.countdownlatch.TestHandlerActivity2;
 import com.test.deviceawake.DeviceAwakeActivity;
+import com.test.dialogactivity.DialogActivity;
 import com.test.handler.TestHandlerActivity;
 import com.test.intentservice.RSSPullService;
 import com.test.keyboardinput.InputActivity;
@@ -35,6 +37,7 @@ import com.test.swiperefresh.SwipeRefreshActivity;
 import com.test.systemphoto.ThumbnailActivity;
 import com.test.touchevent.TouchEventActivity;
 import com.test.touchevent.VelocityTrackerActivity;
+import com.test.transparentactivity.TransparentActivity;
 import com.test.xml.TestXmlActivity;
 
 import java.util.ArrayList;
@@ -58,7 +61,7 @@ public class MainActivity extends Activity {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-               // | View.SYSTEM_UI_FLAG_IMMERSIVE
+                // | View.SYSTEM_UI_FLAG_IMMERSIVE
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         getWindow().getDecorView().setSystemUiVisibility(options);
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
@@ -70,15 +73,21 @@ public class MainActivity extends Activity {
     }
 
     @OnClick(value = {R.id.textview_next_page, R.id.textview_testactivity, R.id.textview_testcamera,
-    R.id.textview_testhandler, R.id.textview_testbitmap, R.id.textview_testopengles,
-    R.id.textview_testanimation, R.id.textview_testnsd, R.id.textview_testnet,
-    R.id.textview_testxml, R.id.textview_testfullscreen, R.id.textview_testimg,
-    R.id.textview_testswiperefresh, R.id.textview_testrefreshandloadmore,
-    R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker,
-    R.id.textview_testinput, R.id.textview_testintentservice, R.id.textview_testsystemphoto,
-    R.id.textview_testdeviceawake, R.id.textview_testjni})
-    private void onClick(View view){
-        switch (view.getId()){
+            R.id.textview_testhandler, R.id.textview_testbitmap, R.id.textview_testopengles,
+            R.id.textview_testanimation, R.id.textview_testnsd, R.id.textview_testnet,
+            R.id.textview_testxml, R.id.textview_testfullscreen, R.id.textview_testimg,
+            R.id.textview_testswiperefresh, R.id.textview_testrefreshandloadmore,
+            R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker,
+            R.id.textview_testinput, R.id.textview_testintentservice, R.id.textview_testsystemphoto,
+            R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog})
+    private void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.textview_dialog:
+                startActivity(new Intent(MainActivity.this, DialogActivity.class));
+                break;
+            case R.id.textview_transparant:
+                startActivity(new Intent(MainActivity.this, TransparentActivity.class));
+                break;
             case R.id.textview_testjni:
                 JniTest j = new JniTest();
                 j.test();
@@ -116,9 +125,9 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this, TestImgActivity.class));
                 break;
             case R.id.textview_testfullscreen:
-                if(options != getWindow().getDecorView().getSystemUiVisibility()) {
+                if (options != getWindow().getDecorView().getSystemUiVisibility()) {
                     getWindow().getDecorView().setSystemUiVisibility(options);
-                }else {
+                } else {
                     int o = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                             View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
                     getWindow().getDecorView().setSystemUiVisibility(o);
@@ -203,28 +212,36 @@ public class MainActivity extends Activity {
 
     }
 
-    private void checkPermission(){
+    private void checkPermission() {
         List<String> permissionLists = new ArrayList<>();
-        if (Build.VERSION.SDK_INT>=23&& ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) !=
+        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED) {
             permissionLists.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         }
-        if (Build.VERSION.SDK_INT>=23&&ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED) {
             permissionLists.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
-        if (Build.VERSION.SDK_INT>=23&&ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
+        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
                 PackageManager.PERMISSION_GRANTED) {
             permissionLists.add(Manifest.permission.CAMERA);
         }
-        if (Build.VERSION.SDK_INT>=23&&ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
+        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED) {
             permissionLists.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
 
-        if(!permissionLists.isEmpty()){//说明肯定有拒绝的权限
+        if (!permissionLists.isEmpty()) {//说明肯定有拒绝的权限
             ActivityCompat.requestPermissions(this, permissionLists.toArray(new String[permissionLists.size()]), 0);
         }
 
     }
+
+    private boolean isMainThread(){
+        //return  Looper.getMainLooper() == Looper.myLooper();
+        return  Looper.getMainLooper().getThread() == Thread.currentThread();
+    }
+
 }
+
+

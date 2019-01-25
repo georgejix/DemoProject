@@ -15,13 +15,13 @@ import java.util.List;
  * @author Administrator
  *
  */
-public class TestFilter {
+public class 将list数据按比例缩减长度 {
 	private List<String> dataList = new ArrayList<String>();
 	private List<String> dataList100 = new ArrayList<String>();
 
 	@Test
 	public void main() {
-		TestFilter testFilter = new TestFilter();
+		将list数据按比例缩减长度 testFilter = new 将list数据按比例缩减长度();
 		testFilter.t1();
 	}
 	

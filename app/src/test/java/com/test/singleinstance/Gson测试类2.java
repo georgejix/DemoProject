@@ -12,7 +12,7 @@ import java.util.List;
  * @author jix
  *
  */
-public class GetDeviceWorkingConditionData{
+public class Gson测试类2 {
 	private String fuelLevel;
 	private String engineSpeed;
 	private String fuelTemperature;

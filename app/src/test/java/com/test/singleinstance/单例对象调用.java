@@ -14,7 +14,7 @@ import java.util.concurrent.CountDownLatch;
  * @author Administrator
  *
  */
-public class TestSingleInstanceCall {
+public class 单例对象调用 {
 	private volatile int i = 0;
 	
 
@@ -30,7 +30,7 @@ public class TestSingleInstanceCall {
 		System.out.println(TestSingleInstance.getInstance());
 		System.out.println(TestSingleInstance.getInstance());*/
 		
-		new TestSingleInstance.Builder();
+		new 单例对象.Builder();
 		
 		final CountDownLatch latch = new CountDownLatch(1);
 		int threadCount = 1000;
@@ -43,7 +43,7 @@ public class TestSingleInstanceCall {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					System.out.println(TestSingleInstance.getInstance().hashCode());
+					System.out.println(单例对象.getInstance().hashCode());
 				}
 			}.start();
 		}

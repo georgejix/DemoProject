@@ -10,10 +10,10 @@ import org.junit.Test;
  * @author Administrator
  *
  */
-public class TestByte {
+public class Byte测试 {
 
 	@Test
-	private void 测试比特() {
+	public void Byte测试() {
 		int i1 = 103;
 		System.out.println(Integer.SIZE);
 		System.out.println(i1 & 0x0000000F);

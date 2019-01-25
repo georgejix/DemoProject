@@ -10,11 +10,11 @@ import org.junit.Test;
  * @author Administrator
  *
  */
-public class TestEnum {
+public class 枚举继承接口 {
 
 	@Test
 	public void main() {
-		TestEnum testEnum = new TestEnum();
+		枚举继承接口 testEnum = new 枚举继承接口();
 		testEnum.t1();
 	}
 

@@ -3,7 +3,6 @@ package com.test.singleinstance;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -16,13 +15,13 @@ import java.util.List;
  * @author Administrator
  *
  */
-public class TestList {
+public class 同步锁 {
 	private Object lockObject = new Object();
 	List<Integer> list = new ArrayList<Integer>();
 
 	@Test
 	public void main() {
-		TestList testList = new TestList();
+		同步锁 testList = new 同步锁();
 		testList.test1();
 	}
 	

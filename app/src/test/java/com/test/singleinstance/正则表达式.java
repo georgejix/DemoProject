@@ -15,10 +15,10 @@ import java.util.regex.Pattern;
  * @author Administrator
  *
  */
-public class TestRegex {
+public class 正则表达式 {
 	@Test
 	 public void main() {
-		 TestRegex main = new TestRegex();
+		 正则表达式 main = new 正则表达式();
 		 System.out.println(
 				 main.operateOnResultStr("http://www.anjugroup.cn/NG01?sn=CXAA18CAA0100552#0C46AC001A51"));
 		 /*System.out.println(
@@ -42,7 +42,7 @@ public class TestRegex {
 
 	 private String operateOnResultStr(String str){
 		 // 邮箱验证规则
-		 //String regEx = "(sn=([A-Z0-9]*)#)";
+		 //String regEx = "(sn=([两个接口函数重名的实现-Z0-9]*)#)";
 		 String regEx = "(/([A-Za-z0-9]+)\\?sn=([A-Z0-9]*)#)";
 		 // 编译正则表达式
 		 Pattern pattern = Pattern.compile(regEx);

@@ -15,12 +15,12 @@ import java.text.SimpleDateFormat;
  * @author Administrator
  *
  */
-public class TestDate {
+public class 日期格式化 {
 
 	@Test
 	public void main() {
 		// TODO Auto-generated method stub
-		//TestDate t = new TestDate();
+		//日期格式化 t = new 日期格式化();
 		//t.t1();
 		//t.t2();
 		//t.t3();

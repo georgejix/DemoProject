@@ -9,7 +9,7 @@ package com.test.singleinstance; /**
  * @author lillian.he
  * @time 2016-06-02
  * */
-public class CalculationLogLatDistance {
+public class 给定经纬度附近距离的坐标 {
     /**
      * 地球赤道半径(km)
      * */
@@ -282,7 +282,7 @@ public class CalculationLogLatDistance {
                 + "千米,方位角为" + azimuth + "°的另一点经纬度为("
                 + ConvertDistanceToLogLat(lon1, lat1, distance, azimuth) + ")");*/
         //118.805706,32.054247
-        CalculationLogLatDistance c = new CalculationLogLatDistance();
+        给定经纬度附近距离的坐标 c = new 给定经纬度附近距离的坐标();
         double d[] = c.getSquareLatLng(0, 90, 0.5);
         for(double dd : d) {
         	System.out.println(dd);

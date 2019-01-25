@@ -10,7 +10,7 @@ import org.junit.Test;
  * @author Administrator
  *
  */
-public class TestDouble {
+public class Double测试 {
 	@Test
 	public void main() {
 		System.out.println((int)Math.ceil(360 * 1 / 6000));

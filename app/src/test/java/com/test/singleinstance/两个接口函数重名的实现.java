@@ -10,7 +10,7 @@ import org.junit.Test;
  * @author Administrator
  *
  */
-public class A{
+public class 两个接口函数重名的实现 {
     interface Interface1{
         void a();
     }

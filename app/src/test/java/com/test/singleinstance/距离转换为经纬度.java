@@ -10,7 +10,7 @@ import org.junit.Test;
  * @author Administrator
  *
  */
-public class TestLocation {
+public class 距离转换为经纬度 {
 
 	@Test
 	public void main() {

@@ -4,14 +4,14 @@ package com.test.singleinstance;
  * Created by Administrator on 2018/12/28.
  */
 
-public class TestExtendsB extends TestExtendsA{
-    private final String TAG = "TestExtends";
+public class 测试继承B extends 测试继承A {
+    private final String TAG = "测试继承";
 
     public String label = "B";
     public void show(){
         System.out.println(TAG + "B");
     }
-    TestExtendsB(){
+    测试继承B(){
         System.out.println("构造函数B");
     }
 }

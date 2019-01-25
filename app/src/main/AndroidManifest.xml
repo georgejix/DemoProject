@@ -26,8 +26,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
-    <!-- 唤醒锁-->
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- 唤醒锁 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -72,16 +72,21 @@
             android:exported="false" />
 
         <activity android:name="com.test.systemphoto.ThumbnailActivity" />
-        <activity android:name="com.test.deviceawake.DeviceAwakeActivity"></activity>
+        <activity android:name="com.test.deviceawake.DeviceAwakeActivity" />
 
-        <service android:name="com.test.deviceawake.MyIntentService"/>
-        <receiver android:name="com.test.deviceawake.AlarmReceiver">
-            </receiver>
+        <service android:name="com.test.deviceawake.MyIntentService" />
+
+        <receiver android:name="com.test.deviceawake.AlarmReceiver" />
         <receiver android:name="com.test.deviceawake.SampleBootReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name="com.test.dialogactivity.DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity android:name="com.test.transparentactivity.TransparentActivity"
+            android:theme="@style/Transparent"></activity>
     </application>
 
 </manifest>

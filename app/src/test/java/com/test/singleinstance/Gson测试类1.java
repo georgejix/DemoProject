@@ -9,7 +9,7 @@ package com.test.singleinstance; /**
  * @author jix
  *
  */
-public class GetDeviceBaseInfoData{
+public class Gson测试类1 {
 	private String deviceCode = "";
 	private String deviceName = "";
 	private String deviceState = "";
