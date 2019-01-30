@@ -83,10 +83,14 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.test.dialogactivity.DialogActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"/>
-        <activity android:name="com.test.transparentactivity.TransparentActivity"
-            android:theme="@style/Transparent"></activity>
+        <activity
+            android:name="com.test.dialogactivity.DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name="com.test.transparentactivity.TransparentActivity"
+            android:theme="@style/Transparent" />
+        <activity android:name="com.test.checkbox.CheckBoxActivity" />
+        <activity android:name="com.test.view.TestSomeViewActivity"></activity>
     </application>
 
 </manifest>

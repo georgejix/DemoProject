@@ -15,3 +15,7 @@ layout: include merge ViewStub
 
 // 把当前的线程变成后台执行的线程
 android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
+
+查看手机activity栈信息命令：adb shell dumpsys activity
+
+elevation 立体效果

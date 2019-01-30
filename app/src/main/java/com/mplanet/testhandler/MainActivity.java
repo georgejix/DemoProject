@@ -21,6 +21,7 @@ import com.test.activity.TestActivityActivity;
 import com.test.animation.TestAnimationActivity;
 import com.test.bitmap.TestBitmapActivity;
 import com.test.camera.CameraActivity;
+import com.test.checkbox.CheckBoxActivity;
 import com.test.circlepic.TestImgActivity;
 import com.test.countdownlatch.TestHandlerActivity2;
 import com.test.deviceawake.DeviceAwakeActivity;
@@ -38,6 +39,7 @@ import com.test.systemphoto.ThumbnailActivity;
 import com.test.touchevent.TouchEventActivity;
 import com.test.touchevent.VelocityTrackerActivity;
 import com.test.transparentactivity.TransparentActivity;
+import com.test.view.TestSomeViewActivity;
 import com.test.xml.TestXmlActivity;
 
 import java.util.ArrayList;
@@ -79,9 +81,16 @@ public class MainActivity extends Activity {
             R.id.textview_testswiperefresh, R.id.textview_testrefreshandloadmore,
             R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker,
             R.id.textview_testinput, R.id.textview_testintentservice, R.id.textview_testsystemphoto,
-            R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog})
+            R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog,
+            R.id.textview_checkbox, R.id.textview_someview})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_someview:
+                startActivity(new Intent(this, TestSomeViewActivity.class));
+                break;
+            case R.id.textview_checkbox:
+                startActivity(new Intent(this, CheckBoxActivity.class));
+                break;
             case R.id.textview_dialog:
                 startActivity(new Intent(MainActivity.this, DialogActivity.class));
                 break;
