@@ -276,6 +276,16 @@
                 android:paddingBottom="10dp"
                 android:text="someview"
                 android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_http"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="http"
+                android:textSize="25sp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

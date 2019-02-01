@@ -27,6 +27,7 @@ import com.test.countdownlatch.TestHandlerActivity2;
 import com.test.deviceawake.DeviceAwakeActivity;
 import com.test.dialogactivity.DialogActivity;
 import com.test.handler.TestHandlerActivity;
+import com.test.http.HttpActivity;
 import com.test.intentservice.RSSPullService;
 import com.test.keyboardinput.InputActivity;
 import com.test.net.TestNetActivity;
@@ -82,9 +83,12 @@ public class MainActivity extends Activity {
             R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker,
             R.id.textview_testinput, R.id.textview_testintentservice, R.id.textview_testsystemphoto,
             R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog,
-            R.id.textview_checkbox, R.id.textview_someview})
+            R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_http:
+                startActivity(new Intent(this, HttpActivity.class));
+                break;
             case R.id.textview_someview:
                 startActivity(new Intent(this, TestSomeViewActivity.class));
                 break;

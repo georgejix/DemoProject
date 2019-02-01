@@ -90,7 +90,8 @@
             android:name="com.test.transparentactivity.TransparentActivity"
             android:theme="@style/Transparent" />
         <activity android:name="com.test.checkbox.CheckBoxActivity" />
-        <activity android:name="com.test.view.TestSomeViewActivity"></activity>
+        <activity android:name="com.test.view.TestSomeViewActivity" />
+        <activity android:name="com.test.http.HttpActivity"></activity>
     </application>
 
 </manifest>

@@ -24,12 +24,24 @@ import java.io.UnsupportedEncodingException;
  */
 
 public class HttpUtils {
+    private static HttpUtils httpUtils;
+    public static HttpUtils getInstance(){
+        if(null == httpUtils){
+            synchronized (HttpUtils.class){
+                if(null == httpUtils){
+                    httpUtils = new HttpUtils();
+                }
+            }
+        }
+        return httpUtils;
+    }
+
     /**
      *
      * @return
      * @brief httpget
      */
-    private String sendGetMessage(String httpURL, String entityString) {
+    public String sendGetMessage(String httpURL, String entityString) {
         try {
 
             HttpClient client = new DefaultHttpClient();
@@ -58,7 +70,7 @@ public class HttpUtils {
      * @return
      * @brief httpput
      */
-    private String sendPutMessage(String httpURL, String entityString) {
+    public String sendPutMessage(String httpURL, String entityString) {
         if(null == entityString){
             return null;
         }
@@ -91,7 +103,7 @@ public class HttpUtils {
      * @return
      * @brief
      */
-    private String sendPostMessage(String httpURL, String entityString) {
+    public String sendPostMessage(String httpURL, String entityString) {
         if(null == entityString){
             return null;
         }
@@ -120,7 +132,7 @@ public class HttpUtils {
      * @return
      * @brief httpdelete
      */
-    private String sendDeleteMessage(String httpURL, String entityString) {
+    public String sendDeleteMessage(String httpURL, String entityString) {
         if(null == entityString){
             return null;
         }
