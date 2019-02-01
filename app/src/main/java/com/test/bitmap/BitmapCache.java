@@ -24,7 +24,7 @@ public class BitmapCache {
         return bitmapCache;
     }
 
-    public BitmapCache(){
+    private BitmapCache(){
         mMemoryCache = new LruCache<String, Bitmap>(cacheSize){
             @Override
             protected int sizeOf(String key, Bitmap value) {
