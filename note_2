@@ -19,3 +19,15 @@ android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROU
 查看手机activity栈信息命令：adb shell dumpsys activity
 
 elevation 立体效果
+
+图片裁剪的核心功能 Bitmap.createBitmap(
+                                    //原图
+                                    originalBitmap,
+                                    //图片裁剪横坐标开始位置
+                                    cropX,
+                                    //图片裁剪纵坐标开始位置
+                                    cropY,
+                                    //要裁剪的宽度
+                                    cropWidth,
+                                    //要裁剪的高度
+                                    cropHeight);

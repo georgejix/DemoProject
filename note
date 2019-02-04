@@ -31,3 +31,17 @@ git commit -m 'update .gitignore'
 
 //ffmpeg build for android
 https://www.jianshu.com/p/228f38e9aa9c
+
+报错java.lang.Class<com.android.tools.fd.runtime.IncrementalChange> cannot be instantiated
+https://blog.csdn.net/canney_chen/article/details/51323663
+方法1
+既然是增加了Instant Run特性导致的，那就把此特性关闭就可以了(默认是开启的)
+关闭方法：Settings> Build, Execution, Deployment> Instant Run> Enable Instant Run to hot swap code/resource changes on deploy(default enabled)（取消此选项）
+方法2
+Field[] fields = objClass.getFields();
+for (Field field : fields) {
+      if(field.isSynthetic()){
+            continue;
+      }
+      //add your code here
+}

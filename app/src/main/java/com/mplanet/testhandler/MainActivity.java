@@ -37,9 +37,13 @@ import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
 import com.test.regex.RegexActivity;
 import com.test.swiperefresh.SwipeRefreshActivity;
 import com.test.systemphoto.ThumbnailActivity;
+import com.test.thread.ThreadActivity;
+import com.test.timer.TimerActivity;
 import com.test.touchevent.TouchEventActivity;
 import com.test.touchevent.VelocityTrackerActivity;
 import com.test.transparentactivity.TransparentActivity;
+import com.test.view.CutPicActivity;
+import com.test.view.ImageViewActivity;
 import com.test.view.TestSomeViewActivity;
 import com.test.xml.TestXmlActivity;
 
@@ -83,9 +87,22 @@ public class MainActivity extends Activity {
             R.id.textview_testregex, R.id.textview_testmotionevent, R.id.textview_testvelocitytracker,
             R.id.textview_testinput, R.id.textview_testintentservice, R.id.textview_testsystemphoto,
             R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog,
-            R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http})
+            R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
+            R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_cutpic:
+                startActivity(new Intent(this, CutPicActivity.class));
+                break;
+            case R.id.textview_imageview:
+                startActivity(new Intent(this, ImageViewActivity.class));
+                break;
+            case R.id.textview_timer:
+                startActivity(new Intent(this, TimerActivity.class));
+                break;
+            case R.id.textview_thread:
+                startActivity(new Intent(this, ThreadActivity.class));
+                break;
             case R.id.textview_http:
                 startActivity(new Intent(this, HttpActivity.class));
                 break;

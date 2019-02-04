@@ -286,6 +286,46 @@
                 android:paddingBottom="10dp"
                 android:text="http"
                 android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_thread"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="thread"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_timer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="timer"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="imageview"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_cutpic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="cutpic"
+                android:textSize="25sp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
