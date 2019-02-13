@@ -31,6 +31,7 @@ import com.test.http.HttpActivity;
 import com.test.intentservice.RSSPullService;
 import com.test.keyboardinput.InputActivity;
 import com.test.net.TestNetActivity;
+import com.test.notification.NotificationActivity;
 import com.test.nsd.TestNsdActivity;
 import com.test.opengles.OpenglesActivity01;
 import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
@@ -88,9 +89,12 @@ public class MainActivity extends Activity {
             R.id.textview_testinput, R.id.textview_testintentservice, R.id.textview_testsystemphoto,
             R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog,
             R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
-            R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic})
+            R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_notification:
+                startActivity(new Intent(this, NotificationActivity.class));
+                break;
             case R.id.textview_cutpic:
                 startActivity(new Intent(this, CutPicActivity.class));
                 break;
