@@ -3,4 +3,11 @@
     <declare-styleable name="RoundLayout">
         <attr name="roundLayoutRadius" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="ChooseDate">
+        <attr name="mainColor" format="color"/>
+        <attr name="mainHightlightColor" format="color"/>
+        <attr name="mainTextSize" format="dimension"/>
+        <attr name="perLineHeight" format="dimension"/>
+    </declare-styleable>
 </resources>

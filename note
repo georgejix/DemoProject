@@ -1,6 +1,7 @@
 android官方文档：
 http://hukai.me/android-training-course-in-chinese/best-background.html
 
+
 vps:
 http://blog.csdn.net/blackfrog_unique/article/details/60320737
 https://www.textarea.com/ExpectoPatronum/shiyong-shadowsocks-kexue-shangwang-265/
@@ -20,8 +21,10 @@ https://www.textarea.com/ExpectoPatronum/shiyong-shadowsocks-kexue-shangwang-265
     "fast_open": false
 }
 
+
 值得学习的C语言开源项目
 https://www.jianshu.com/p/c5d81d98256f
+
 
 Git中.gitignore文件不起作用的解决以及Git中的忽略规则介绍
 在填写忽略文件的过程中，我发现在Android Studio里面，.gitignore中已经标明忽略的文件目录下的文件，当我想git push的时候还会出现在push的目录中，原因是因为在Studio的git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，这时候我们就应该先把本地缓存删除，然后再进行git的push，这样就不会出现忽略的文件了。git清除本地缓存命令如下：
@@ -29,8 +32,10 @@ git rm -r --cached .
 git add .
 git commit -m 'update .gitignore'
 
+
 //ffmpeg build for android
 https://www.jianshu.com/p/228f38e9aa9c
+
 
 报错java.lang.Class<com.android.tools.fd.runtime.IncrementalChange> cannot be instantiated
 https://blog.csdn.net/canney_chen/article/details/51323663
@@ -45,3 +50,20 @@ for (Field field : fields) {
       }
       //add your code here
 }
+
+
+拉取远程分支到本地
+    git checkout -b 本地分支名 origin/远程分支名
+提交分支
+    git push origin 本地分支名:远程分支名  //不需要切换到提交分支
+更新远程分支到本地（方法1,不推荐）
+    git pull origin <remote_branch><local_branch>  //如果当前分支不是local_branch，除了local_branch会更新外，当前分支也会被默认更新！
+更新远程分支到本地（方法2,推荐）
+    切换到需要操作的分支
+    <修改代码,   git add --all,   git commit>
+    git fetch
+    git merge
+    修改冲突
+    提交
+git merge之后，需要push才会将merge提交到远程仓库
+git revert commitid撤销一次merge

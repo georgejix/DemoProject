@@ -31,3 +31,5 @@ elevation 立体效果
                                     cropWidth,
                                     //要裁剪的高度
                                     cropHeight);
+
+imageview设置tint属性，修改着色

@@ -15,6 +15,7 @@ public class 测试日期 {
     @Test
     public void test(){
         //t1();
+        t2();
     }
 
     //日期月份+1
@@ -27,5 +28,30 @@ public class 测试日期 {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy--MM--dd");
         System.out.println(sdf.format(calendar.getTime()));
+    }
+
+    //打印日期选择控件，所需数据
+    private void t2(){
+        Calendar calendar = Calendar.getInstance(Locale.CHINA);
+        int minDay = calendar.getActualMinimum(Calendar.DAY_OF_MONTH);
+        int maxDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int firstDayOfWeek = calendar.getFirstDayOfWeek();//1:sunday，7:Saturday 获取一周的第一天
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        print("minDay=" + minDay);
+        print("maxDay=" + maxDay);
+        print("firstDayOfWeek=" + firstDayOfWeek);
+        print("dayOfWeek=" + dayOfWeek);
+    }
+
+    class Day{
+        private int year;
+        private int month;
+        private int day;
+        private int dayOfWeek;
+    }
+
+    private void print(String s){
+        if(null != s)
+        System.out.println(s);
     }
 }

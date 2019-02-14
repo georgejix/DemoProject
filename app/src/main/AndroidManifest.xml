@@ -108,7 +108,8 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name="com.test.notification.NotificationActivity"></activity>
+        <activity android:name="com.test.notification.NotificationActivity" />
+        <activity android:name="com.test.choosedate.ChooseDateActivity"></activity>
     </application>
 
 </manifest>
