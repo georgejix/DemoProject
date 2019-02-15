@@ -8,6 +8,7 @@ public class Day {
     //month： 0-11
     private int year, month, day, dayOfWeek;
     private boolean isSelected;
+    private boolean isStartTime, isEndTime;
 
     public Day(int year, int month, int day, int dayOfWeek, boolean isSelected){
         this.year = year;
@@ -55,6 +56,22 @@ public class Day {
 
     public void setSelected(boolean selected) {
         isSelected = selected;
+    }
+
+    public boolean isStartTime() {
+        return isStartTime;
+    }
+
+    public void setStartTime(boolean startTime) {
+        isStartTime = startTime;
+    }
+
+    public boolean isEndTime() {
+        return isEndTime;
+    }
+
+    public void setEndTime(boolean endTime) {
+        isEndTime = endTime;
     }
 
     @Override

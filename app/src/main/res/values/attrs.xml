@@ -5,8 +5,10 @@
     </declare-styleable>
 
     <declare-styleable name="ChooseDate">
-        <attr name="mainColor" format="color"/>
-        <attr name="mainHightlightColor" format="color"/>
+        <attr name="mainTextColor" format="color"/>
+        <attr name="hightlightTextColor" format="color"/>
+        <attr name="mainBgColor" format="color"/>
+        <attr name="hightlightBgColor" format="color"/>
         <attr name="mainTextSize" format="dimension"/>
         <attr name="perLineHeight" format="dimension"/>
     </declare-styleable>

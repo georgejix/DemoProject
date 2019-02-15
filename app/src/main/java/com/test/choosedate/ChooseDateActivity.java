@@ -46,11 +46,16 @@ public class ChooseDateActivity extends Activity {
     private TextView seventhInWeekText;
     @ViewInject(R.id.chooseDateView)
     private ChooseDateView chooseDateView;
+    @ViewInject(R.id.view_starttime)
+    private View startTimeLine;
+    @ViewInject(R.id.view_endtime)
+    private View endTimeLine;
 
     private Calendar calendar;
     private SimpleDateFormat sdf;
     private int firstDayOfWeek = -1;
     private String dayOfWeek[] = new String[]{"日", "一", "二", "三", "四", "五", "六"};
+    private boolean startTimeSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +85,50 @@ public class ChooseDateActivity extends Activity {
         }
         if(null != chooseDateView && null != calendar){
             chooseDateView.setCalendar((Calendar) calendar.clone());
+            chooseDateView.setOnDaySelectedListener(new ChooseDateView.OnDaySelectedListener() {
+                @Override
+                public void onClick(int index) {
+                    if(-1 != index && null != chooseDateView && null != chooseDateView.getDayList() && chooseDateView.getDayList().size() > 0 &&
+                            chooseDateView.getDayList().size() > index){
+                        if(startTimeSelected){
+                            chooseDateView.setStartTime(index);
+                            if(null != chooseDateView.getStartTime()) {
+                                starttimeText.setText((chooseDateView.getStartTime().getMonth() + 1) + "月" +
+                                        chooseDateView.getStartTime().getDay() + "日");
+                            }
+                        }else{
+                            chooseDateView.setEndTime(index);
+                            if(null != chooseDateView.getEndTime()) {
+                                endtimeText.setText((chooseDateView.getEndTime().getMonth() + 1) + "月" +
+                                        chooseDateView.getEndTime().getDay() + "日");
+                            }
+                        }
+                        chooseDateView.invalidate();
+                    }
+                }
+            });
+            chooseDateView.setErrorListener(new ChooseDateView.ErrorListener() {
+                @Override
+                public void error(String s) {
+                    if(null != s) {
+                        Toast.makeText(ChooseDateActivity.this, s, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            chooseDateView.setMaxRange(31);
         }
+        setSelected(true);
     }
 
-    @OnClick(value = {R.id.textview_close, R.id.textview_pre_month, R.id.textview_next_month})
+    @OnClick(value = {R.id.layout_starttime, R.id.layout_endtime, R.id.textview_close, R.id.textview_pre_month, R.id.textview_next_month})
     private void onClick(View view){
         switch (view.getId()){
+            case R.id.layout_starttime:
+                setSelected(true);
+                break;
+            case R.id.layout_endtime:
+                setSelected(false);
+                break;
             case R.id.textview_close:
                 Toast.makeText(ChooseDateActivity.this, "close", Toast.LENGTH_SHORT).show();
                 break;
@@ -98,6 +141,19 @@ public class ChooseDateActivity extends Activity {
         }
     }
 
+    private void setSelected(boolean startTimeSelected){
+        synchronized(this){
+            this.startTimeSelected = startTimeSelected;
+            if(startTimeSelected){
+                startTimeLine.setBackgroundColor(getResources().getColor(R.color.red));
+                endTimeLine.setBackgroundColor(getResources().getColor(R.color.white));
+            }else{
+                startTimeLine.setBackgroundColor(getResources().getColor(R.color.white));
+                endTimeLine.setBackgroundColor(getResources().getColor(R.color.red));
+            }
+        }
+    }
+
     private void changeMonth(int i){
         if(null != calendar) {
             calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH) + i);
@@ -107,6 +163,7 @@ public class ChooseDateActivity extends Activity {
         }
         if(null != chooseDateView && null != calendar){
             chooseDateView.setCalendar((Calendar) calendar.clone());
+            chooseDateView.invalidate();
         }
     }
 }
