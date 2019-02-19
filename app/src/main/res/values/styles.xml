@@ -18,4 +18,10 @@
     <style  name = "MyDialogTheme" parent = "@android:style/Theme.Holo.Light.Dialog">
         <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
+
+
+    <style name="animation_in_and_out" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
+    </style>
 </resources>

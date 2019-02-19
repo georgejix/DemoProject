@@ -123,6 +123,7 @@ public class TestActivityActivity extends Activity {
             if(null == popClickListener){
                 popClickListener = new PopupWindowListener();
             }
+            viewHolder = new ViewHolder();
             if(null != viewHolder){
             }
         }

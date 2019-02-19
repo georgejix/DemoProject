@@ -23,6 +23,7 @@ import com.test.bitmap.TestBitmapActivity;
 import com.test.camera.CameraActivity;
 import com.test.checkbox.CheckBoxActivity;
 import com.test.choosedate.ChooseDateActivity;
+import com.test.choosedate.ChooseDateInPopActivity;
 import com.test.circlepic.TestImgActivity;
 import com.test.countdownlatch.TestHandlerActivity2;
 import com.test.deviceawake.DeviceAwakeActivity;
@@ -44,6 +45,7 @@ import com.test.timer.TimerActivity;
 import com.test.touchevent.TouchEventActivity;
 import com.test.touchevent.VelocityTrackerActivity;
 import com.test.transparentactivity.TransparentActivity;
+import com.test.view.BezierActivity;
 import com.test.view.CutPicActivity;
 import com.test.view.ImageViewActivity;
 import com.test.view.TestSomeViewActivity;
@@ -91,9 +93,15 @@ public class MainActivity extends Activity {
             R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog,
             R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
             R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification,
-            R.id.textview_calendar})
+            R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_bezier:
+                startActivity(new Intent(this, BezierActivity.class));
+                break;
+            case R.id.textview_calendarbypop:
+                startActivity(new Intent(this, ChooseDateInPopActivity.class));
+                break;
             case R.id.textview_calendar:
                 startActivity(new Intent(this, ChooseDateActivity.class));
                 break;

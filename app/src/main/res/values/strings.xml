@@ -4,4 +4,16 @@
     <string name="updated">Last updated:</string>
     <string name="load_completed">已经全部加载完成</string>
     <string name="loading">正在加载</string>
+
+    <string name="starttime">开始日期</string>
+    <string name="endtime">结束日期</string>
+    <string name="cancel">取消</string>
+    <string name="save">保存</string>
+    <string name="choosedate_format">yyyy年MM月</string>
+    <string name="choosedate_month">月</string>
+    <string name="choosedate_day">日</string>
+    <string name="choosedate_error1">开始时间不可以大于结束时间</string>
+    <string name="choosedate_error2">日期间隔天数最大31天</string>
+    <string name="choosedate_error3">天</string>
+    <string name="choosedate_error4">结束时间不可以小于开始时间</string>
 </resources>

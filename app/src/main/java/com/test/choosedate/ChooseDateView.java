@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.mplanet.testhandler.R;
 import com.test.Utils;
@@ -114,8 +115,8 @@ public class ChooseDateView extends View{
         hightlightBgPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         //通过xml方式添加view，xml中设置了width和height，在此处修改是不会生效的
-        setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,perLineHeight * 6));
+        /*setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,perLineHeight * 6));*/
     }
 
     @Override
@@ -341,6 +342,10 @@ public class ChooseDateView extends View{
         this.onDaySelectedListener = onDaySelectedListener;
     }
 
+    public OnDaySelectedListener getOnDaySelectedListener() {
+        return onDaySelectedListener;
+    }
+
     //用于打印错误
     private ErrorListener errorListener;
     interface ErrorListener{
@@ -349,6 +354,10 @@ public class ChooseDateView extends View{
 
     public void setErrorListener(ErrorListener errorListener) {
         this.errorListener = errorListener;
+    }
+
+    public ErrorListener getErrorListener() {
+        return errorListener;
     }
 
     public List<Day> getDayList() {
@@ -370,15 +379,16 @@ public class ChooseDateView extends View{
         synchronized (lock){
             if(null != endTime && null != dayList && dayList.size() > 0 && dayList.size() > index){
                 if(!isDayAsc(dayList.get(index), endTime)){
-                    if(null != errorListener){
-                        errorListener.error("开始时间不可以大于结束时间");
+                    if(null != errorListener && null != mContext){
+                        errorListener.error(mContext.getResources().getString(R.string.choosedate_error1));
                     }
                     return;
                 }
                 if(-1 != maxRange){
                     if(!isInRange(dayList.get(index), endTime, maxRange)){
-                        if(null != errorListener){
-                            errorListener.error("日期间隔天数最大31天");
+                        if(null != errorListener && null != mContext){
+                            errorListener.error(mContext.getResources().getString(R.string.choosedate_error2) + maxRange +
+                                    mContext.getResources().getString(R.string.choosedate_error3));
                         }
                         return;
                     }
@@ -412,15 +422,16 @@ public class ChooseDateView extends View{
         synchronized (lock){
             if(null != startTime && null != dayList && dayList.size() > 0 && dayList.size() > index){
                 if (!isDayAsc(startTime, dayList.get(index))) {
-                    if(null != errorListener){
-                        errorListener.error("结束时间不可以小于开始时间");
+                    if(null != errorListener && null != mContext){
+                        errorListener.error(mContext.getResources().getString(R.string.choosedate_error4));
                     }
                     return;
                 }
                 if(-1 != maxRange){
                     if(!isInRange(startTime, dayList.get(index), maxRange)){
-                        if(null != errorListener){
-                            errorListener.error("日期间隔天数最大31天");
+                        if(null != errorListener && null != mContext){
+                            errorListener.error(mContext.getResources().getString(R.string.choosedate_error2) + maxRange +
+                                    mContext.getResources().getString(R.string.choosedate_error3));
                         }
                         return;
                     }

@@ -109,7 +109,9 @@
         </provider>
 
         <activity android:name="com.test.notification.NotificationActivity" />
-        <activity android:name="com.test.choosedate.ChooseDateActivity"></activity>
+        <activity android:name="com.test.choosedate.ChooseDateActivity" />
+        <activity android:name="com.test.choosedate.ChooseDateInPopActivity" />
+        <activity android:name="com.test.view.BezierActivity"></activity>
     </application>
 
 </manifest>
