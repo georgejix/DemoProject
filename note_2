@@ -33,3 +33,6 @@ elevation 立体效果
                                     cropHeight);
 
 imageview设置tint属性，修改着色
+
+ServerSocket serverSocket =  new ServerSocket(0); //读取空闲的可用端口
+int port = serverSocket.getLocalPort();
