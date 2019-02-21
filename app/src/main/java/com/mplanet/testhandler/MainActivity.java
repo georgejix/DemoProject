@@ -38,6 +38,7 @@ import com.test.nsd.TestNsdActivity;
 import com.test.opengles.OpenglesActivity01;
 import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
 import com.test.regex.RegexActivity;
+import com.test.sqlite.SqliteActivity;
 import com.test.swiperefresh.SwipeRefreshActivity;
 import com.test.systemphoto.ThumbnailActivity;
 import com.test.thread.ThreadActivity;
@@ -93,9 +94,12 @@ public class MainActivity extends Activity {
             R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog,
             R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
             R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification,
-            R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier})
+            R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_sqlite:
+                startActivity(new Intent(this, SqliteActivity.class));
+                break;
             case R.id.textview_bezier:
                 startActivity(new Intent(this, BezierActivity.class));
                 break;

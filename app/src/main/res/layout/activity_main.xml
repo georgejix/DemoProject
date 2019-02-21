@@ -366,6 +366,16 @@
                 android:paddingBottom="10dp"
                 android:text="贝塞尔曲线"
                 android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/textview_sqlite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="sqlite"
+                android:textSize="25sp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
