@@ -36,3 +36,13 @@ imageview设置tint属性，修改着色
 
 ServerSocket serverSocket =  new ServerSocket(0); //读取空闲的可用端口
 int port = serverSocket.getLocalPort();
+
+//HorizontalScrollView滑动到最右
+titleScroll.getViewTreeObserver().addOnGlobalLayoutListener(titleLayoutListener);
+ViewTreeObserver.OnGlobalLayoutListener titleLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+        @Override
+        public void onGlobalLayout() {
+        	titleScroll.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+        	titleScroll.getViewTreeObserver().removeOnGlobalLayoutListener(titleLayoutListener);
+        }
+    };
