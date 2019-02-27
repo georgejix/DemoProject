@@ -29,10 +29,8 @@
 
     <!-- 唤醒锁 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <uses-permission android:name="com.mplanet.testhandler.READ_CONTENT"/>
-    <uses-permission android:name="com.mplanet.testhandler.WRITE_CONTENT"/>
-
+    <uses-permission android:name="com.mplanet.testhandler.READ_CONTENT" />
+    <uses-permission android:name="com.mplanet.testhandler.WRITE_CONTENT" />
 
     <permission
         android:name="com.mplanet.testhandler.READ_CONTENT"
@@ -51,10 +49,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity">
-            <!--android:launchMode="singleInstance"
-            android:taskAffinity="a.b.c"-->
+        <activity android:name=".MainActivity">
+
+            <!--
+            android:launchMode="singleInstance"
+            android:taskAffinity="a.b.c"
+            -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -130,7 +130,7 @@
         <activity android:name="com.test.choosedate.ChooseDateInPopActivity" />
         <activity android:name="com.test.view.BezierActivity" />
         <activity android:name="com.test.sqlite.SqliteActivity" />
-        <activity android:name="com.test.contentprovider.ContentProviderActivity"></activity>
+        <activity android:name="com.test.contentprovider.ContentProviderActivity" />
 
         <provider
             android:name="com.test.contentprovider.DemoContentProvider"
@@ -139,9 +139,11 @@
             android:grantUriPermissions="true"
             android:process=":provider"
             android:readPermission="com.mplanet.testhandler.READ_CONTENT"
-            android:writePermission="com.mplanet.testhandler.WRITE_CONTENT"
-            />
+            android:writePermission="com.mplanet.testhandler.WRITE_CONTENT" />
 
+        <activity android:name="com.test.service.ServiceActivity"></activity>
+        <service android:name="com.test.service.MyService"
+            android:process=":remote"/>
     </application>
 
 </manifest>

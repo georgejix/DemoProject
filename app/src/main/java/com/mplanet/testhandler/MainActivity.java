@@ -42,6 +42,7 @@ import com.test.nsd.TestNsdActivity;
 import com.test.opengles.OpenglesActivity01;
 import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
 import com.test.regex.RegexActivity;
+import com.test.service.ServiceActivity;
 import com.test.sqlite.SqliteActivity;
 import com.test.swiperefresh.SwipeRefreshActivity;
 import com.test.systemphoto.ThumbnailActivity;
@@ -98,9 +99,12 @@ public class MainActivity extends BaseActivity {
             R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
             R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification,
             R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite,
-            R.id.textview_contentprovider})
+            R.id.textview_contentprovider, R.id.textview_service})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_service:
+                startActivity(new Intent(this, ServiceActivity.class));
+                break;
             case R.id.textview_contentprovider:
                 startActivity(new Intent(this, ContentProviderActivity.class));
                 break;
