@@ -25,9 +25,23 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- 唤醒锁 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="com.mplanet.testhandler.READ_CONTENT"/>
+    <uses-permission android:name="com.mplanet.testhandler.WRITE_CONTENT"/>
+
+
+    <permission
+        android:name="com.mplanet.testhandler.READ_CONTENT"
+        android:label="Permission for read content provider"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.mplanet.testhandler.WRITE_CONTENT"
+        android:label="Permission for write content provider"
+        android:protectionLevel="normal" />
 
     <application
         android:name="com.App"
@@ -37,7 +51,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleInstance"
+            android:taskAffinity="a.b.c">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -112,7 +129,19 @@
         <activity android:name="com.test.choosedate.ChooseDateActivity" />
         <activity android:name="com.test.choosedate.ChooseDateInPopActivity" />
         <activity android:name="com.test.view.BezierActivity" />
-        <activity android:name="com.test.sqlite.SqliteActivity"></activity>
+        <activity android:name="com.test.sqlite.SqliteActivity" />
+        <activity android:name="com.test.contentprovider.ContentProviderActivity"></activity>
+
+        <provider
+            android:name="com.test.contentprovider.DemoContentProvider"
+            android:authorities="com.mplanet.testhandler"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:process=":provider"
+            android:readPermission="com.mplanet.testhandler.READ_CONTENT"
+            android:writePermission="com.mplanet.testhandler.WRITE_CONTENT"
+            />
+
     </application>
 
 </manifest>

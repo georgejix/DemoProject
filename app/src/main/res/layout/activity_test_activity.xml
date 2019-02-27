@@ -24,4 +24,10 @@
         android:layout_height="100dp"
         android:gravity="center_horizontal"
         android:background="@null"/>
+    <TextView
+        android:id="@+id/textview_main"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal"
+        android:text="main"/>
 </LinearLayout>

@@ -16,4 +16,13 @@
     <string name="choosedate_error2">日期间隔天数最大31天</string>
     <string name="choosedate_error3">天</string>
     <string name="choosedate_error4">结束时间不可以小于开始时间</string>
+
+
+    <!-- TypedArray titleArray = context.getResources().obtainTypedArray(
+                R.array.stringarray); -->
+    <string-array name="stringarray">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

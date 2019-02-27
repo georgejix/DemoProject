@@ -2,6 +2,7 @@ package com;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 
 import java.util.Stack;
 
@@ -11,6 +12,7 @@ import java.util.Stack;
  * @version 创建时间：2014年8月26日下午6:19:04
  */
 public class AppManager {
+	private final String TAG = "AppManager";
     
     private static AppManager instance = new AppManager();
     
@@ -31,6 +33,9 @@ public class AppManager {
 	 */
 	public void addActivity(BaseActivity activity) {
 		activityStack.add(activity);
+		for (BaseActivity a : activityStack) {
+			Log.d(TAG, "a = " + (null == a ? "null" : a.getClass().getSimpleName()));
+		}
 	}
 
 	public void removeActivity(BaseActivity activity)
@@ -117,6 +122,7 @@ public class AppManager {
 	public void finishAllActivity() {
 		for (int i = 0, size = activityStack.size(); i < size; i++) {
 			if (null != activityStack.get(i)) {
+				Log.d(TAG, activityStack.get(i).getClass().getSimpleName() + " finish");
 				activityStack.get(i).finish();
 			}
 		}

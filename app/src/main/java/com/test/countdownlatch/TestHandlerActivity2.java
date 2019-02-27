@@ -39,15 +39,47 @@ public class TestHandlerActivity2 extends Activity {
                         Bundle bundle = new Bundle();
                         bundle.putInt("num", i);
                         msg.setData(bundle);
-                        //countDownLatch.await();
-                        Thread.sleep(200);
+                        Log.d(TAG, "before sendMessage");
+                        countDownLatch.await();
+                        //Thread.sleep(200);
+                        Log.d(TAG, "sendMessage");
                         viewHandler.sendMessage(msg);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Log.d(TAG, e + "");
                     }
                 }
             }).start();
         }
+
+        countDownLatch = new CountDownLatch(1);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        for(i = 0; i < 20; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+
+                        Message msg = new Message();
+                        msg.what = MESSAGE1;
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("2num", i);
+                        msg.setData(bundle);
+                        Log.d(TAG, "2before sendMessage");
+                        countDownLatch.await();
+                        //Thread.sleep(200);
+                        Log.d(TAG, "2sendMessage");
+                        viewHandler.sendMessage(msg);
+                    } catch (Exception e) {
+                        Log.d(TAG, e + "");
+                    }
+                }
+            }).start();
+        }
+
         countDownLatch.countDown();
     }
 
@@ -57,12 +89,12 @@ public class TestHandlerActivity2 extends Activity {
             super.handleMessage(msg);
             switch (msg.what){
                 case MESSAGE1:
-                    removeMessages(MESSAGE1);
-                    try {
-                        Thread.sleep(500);
+                    //removeMessages(MESSAGE1);
+                    /*try {
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
+                    }*/
                     Log.d(TAG, "num=" + msg.getData().getInt("num"));
                     break;
             }

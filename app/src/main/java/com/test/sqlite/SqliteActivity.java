@@ -17,6 +17,11 @@ import com.mplanet.testhandler.R;
 
 import java.util.Random;
 
+/**
+ * 将db与apk一同发布，将db放入res/aw，安装之后，将res/aw下的db文件通过getResources().openRawResource()得到InputStream对象，写入手机目录
+ * 通过SQLiteDatabase.openOrCreateDatabase();打开任意目录下的db文件
+ */
+
 @ContentView(R.layout.activity_sqlite)
 public class SqliteActivity extends Activity {
     private final String TAG = "SqliteActivity";
@@ -81,9 +86,10 @@ public class SqliteActivity extends Activity {
         if(null != database) {
             // 相当于 select * from students 语句
             Cursor cursor = database.query(SQLiteDbHelper.TABLE_STUDENT, null,
-                    "id = ?", new String[]{"3"},
+                    "id >= ?", new String[]{"3"},
                     null, null, null, null);
             if(null != cursor) {
+                StringBuffer sb = new StringBuffer();
                 // 不断移动光标获取值
                 while (cursor.moveToNext()) {
                     // 直接通过索引获取字段值
@@ -92,7 +98,9 @@ public class SqliteActivity extends Activity {
                     // 先获取 name 的索引值，然后再通过索引获取字段值
                     String stuName = cursor.getString(cursor.getColumnIndex("name"));
                     Log.e(TAG, "id: " + stuId + " name: " + stuName);
+                    sb.append("id: " + stuId + " name: " + stuName + "\n");
                 }
+                contentTextView.setText(sb.toString());
                 // 关闭光标
                 cursor.close();
             }

@@ -20,7 +20,7 @@ public class BezierView extends View {
     private Context mContext;
     private List<Point> pointList;
     private Paint mainPaint;
-    private int mainColor;
+    private int mainColor = 0xFF2C2255;
 
     public BezierView(Context context) {
         super(context);

@@ -11,8 +11,11 @@ import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 
+import com.AppManager;
+import com.BaseActivity;
 import com.jni.JniTest;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
@@ -25,6 +28,7 @@ import com.test.checkbox.CheckBoxActivity;
 import com.test.choosedate.ChooseDateActivity;
 import com.test.choosedate.ChooseDateInPopActivity;
 import com.test.circlepic.TestImgActivity;
+import com.test.contentprovider.ContentProviderActivity;
 import com.test.countdownlatch.TestHandlerActivity2;
 import com.test.deviceawake.DeviceAwakeActivity;
 import com.test.dialogactivity.DialogActivity;
@@ -56,14 +60,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ContentView(R.layout.activity_main)
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
     private final String TAG = "MainActivity";
     int options;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewUtils.inject(this);
         checkPermission();
         //Log.d(TAG, "getFilesDir=" + getFilesDir().getAbsolutePath() + ",getCacheDir=" + getCacheDir().getAbsolutePath());
         //Log.d(TAG, "getExternalFilesDir=" + getExternalFilesDir("img"));
@@ -94,9 +97,13 @@ public class MainActivity extends Activity {
             R.id.textview_testdeviceawake, R.id.textview_testjni, R.id.textview_transparant, R.id.textview_dialog,
             R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
             R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification,
-            R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite})
+            R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite,
+            R.id.textview_contentprovider})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_contentprovider:
+                startActivity(new Intent(this, ContentProviderActivity.class));
+                break;
             case R.id.textview_sqlite:
                 startActivity(new Intent(this, SqliteActivity.class));
                 break;
@@ -281,6 +288,10 @@ public class MainActivity extends Activity {
                 PackageManager.PERMISSION_GRANTED) {
             permissionLists.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
+        if (Build.VERSION.SDK_INT>=23&& ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) !=
+                PackageManager.PERMISSION_GRANTED) {
+            permissionLists.add(Manifest.permission.RECORD_AUDIO);
+        }
 
         if (!permissionLists.isEmpty()) {//说明肯定有拒绝的权限
             ActivityCompat.requestPermissions(this, permissionLists.toArray(new String[permissionLists.size()]), 0);
@@ -293,6 +304,14 @@ public class MainActivity extends Activity {
         return  Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+            AppManager.getAppManager().finishAllActivity();
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
 }
 
 

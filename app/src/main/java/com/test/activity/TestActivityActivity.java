@@ -16,10 +16,15 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.BaseActivity;
+import com.lidroid.xutils.view.annotation.ContentView;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.mplanet.testhandler.MainActivity;
 import com.mplanet.testhandler.R;
 import com.test.handler.TestHandlerActivity;
 
-public class TestActivityActivity extends Activity {
+@ContentView(R.layout.activity_test_activity)
+public class TestActivityActivity extends BaseActivity {
     private final String TAG = "TestActivity";
 
     private ScreenOrientationUtil screenOrientation;
@@ -29,8 +34,6 @@ public class TestActivityActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate");
-        setContentView(R.layout.activity_test_activity);
         findViewById(R.id.textview_test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +51,15 @@ public class TestActivityActivity extends Activity {
         screenOrientation = ScreenOrientationUtil.getInstance();
         screenOrientation.start(this);
         editText = (EditText) findViewById(R.id.edittext_t1);
+    }
+
+    @OnClick(value = {R.id.textview_main})
+    private void onClick(View view){
+        switch(view.getId()){
+            case R.id.textview_main:
+                startActivity(new Intent(TestActivityActivity.this, MainActivity.class));
+                break;
+        }
     }
 
     @Override

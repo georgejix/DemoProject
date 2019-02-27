@@ -3,6 +3,7 @@ package com;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.lidroid.xutils.ViewUtils;
 
@@ -11,6 +12,7 @@ import com.lidroid.xutils.ViewUtils;
  */
 
 public class BaseActivity extends Activity {
+    private final String TAG = "BaseActivity";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,5 +26,6 @@ public class BaseActivity extends Activity {
         super.onDestroy();
         AppManager appManager = AppManager.getAppManager();
         appManager.removeActivity(this);
+        Log.d(TAG, getClass().getSimpleName() + " destory");
     }
 }
