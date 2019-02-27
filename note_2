@@ -53,6 +53,7 @@ standard A->singleInstance B->standard C        A和C在一个stack，B单独sta
 standard A->singleTask（没有指定taskAffinity） B->standard C      A,B,C在同一个stack
 standard A->singleTask（指定taskAffinity） B->standard C      A在一个stack,B,C在一个stack
 跳转activity时，默认在当前stack上新增，遇到需要新建stack时则新建，如果当前stack不让新增新的activity，则用之前存在的可用的stack
+不同activity stack，在点击系统menu按钮时，是不同的窗口
 
 library工程中，获取string.xml中string的方法
 SDKInitializer.getContext().getResources().getIdentifier("upgrade_pkg_download_failed", "string", SDKInitializer.getContext().getPackageName())
