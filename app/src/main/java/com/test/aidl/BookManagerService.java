@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
+import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -17,12 +18,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 
 public class BookManagerService extends Service {
-    private final String TAG = "BookManagerService";
+    private final String TAG = "aidlBookManagerService";
 
     private CopyOnWriteArrayList<Book> mBookList = new CopyOnWriteArrayList<>();
     private AtomicBoolean mIsServiceDestoryed = new AtomicBoolean(false);
-    private CopyOnWriteArrayList<IOnNewBookArrivedListener> mListenerList =
-            new CopyOnWriteArrayList<>();
+    private RemoteCallbackList<IOnNewBookArrivedListener> mListenerList =
+            new RemoteCallbackList<>();
 
     private Binder mBinder = new IBookManager.Stub(){
 
@@ -38,23 +39,18 @@ public class BookManagerService extends Service {
 
         @Override
         public void registerListner(IOnNewBookArrivedListener listener) throws RemoteException {
-            if (!mListenerList.contains(listener)) {
-                mListenerList.add(listener);
-            }else {
-                Log.d(TAG, "already exists");
-            }
-            Log.d(TAG, "mListenerList.size = " + mListenerList.size());
+            mListenerList.register(listener);
+            int N = mListenerList.beginBroadcast();
+            Log.d(TAG, "register listener size= " + N);
+            mListenerList.finishBroadcast();
         }
 
         @Override
         public void unregisterListner(IOnNewBookArrivedListener listener) throws RemoteException {
-            if(mListenerList.contains(listener)){
-                mListenerList.remove(listener);
-                Log.d(TAG, "unregister listener succeed");
-            }else{
-                Log.d(TAG, "not found, can not unregister");
-            }
-            Log.d(TAG, "mListenerList.size = " + mListenerList.size());
+            mListenerList.unregister(listener);
+            int N = mListenerList.beginBroadcast();
+            Log.d(TAG, "unregister listener size= " + N);
+            mListenerList.finishBroadcast();
         }
     };
 
@@ -80,14 +76,18 @@ public class BookManagerService extends Service {
 
     private void onNewBookArrived(Book book){
         mBookList.add(book);
-        Log.d(TAG, "onNewBookArrived mListenerList.size = " + mListenerList.size());
-        for(IOnNewBookArrivedListener listener : mListenerList){
-            try {
-                listener.onNewBookArrived(book);
-            } catch (RemoteException e) {
-                e.printStackTrace();
+        final int N = mListenerList.beginBroadcast();
+        for(int i = 0; i < N; i++){
+            IOnNewBookArrivedListener l = mListenerList.getBroadcastItem(i);
+            if(null != l){
+                try {
+                    l.onNewBookArrived(book);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
             }
         }
+        mListenerList.finishBroadcast();
     }
 
     private class ServiceWorker implements Runnable{

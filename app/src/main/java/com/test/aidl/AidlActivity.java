@@ -4,11 +4,13 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.Parcel;
+import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -145,22 +147,26 @@ public class AidlActivity extends BaseActivity {
         }
     }
 
+    private IBookManager mRemoteBookManager;
     private ServiceConnection serviceConnection2 = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             IBookManager bookManager = IBookManager.Stub.asInterface(iBinder);
             try{
+                mRemoteBookManager = bookManager;
                 List<Book> list = bookManager.getBookList();
                 printBookList(list);
                 bookManager.addBook(new Book(3, "no name"));
                 list = bookManager.getBookList();
                 printBookList(list);
+                bookManager.registerListner(mOnNewBookArrivedListener);
             }catch (Exception e){}
         }
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
-
+            mRemoteBookManager = null;
+            Log.d(TAG, "binder died");
         }
     };
     private void printBookList(List<Book> list){
@@ -173,6 +179,25 @@ public class AidlActivity extends BaseActivity {
             }
         }
     }
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1003:
+                    Log.d(TAG, "received a new book" + msg.obj);
+                    break;
+            }
+        }
+    };
+    private IOnNewBookArrivedListener mOnNewBookArrivedListener = new IOnNewBookArrivedListener.Stub() {
+
+        @Override
+        public void onNewBookArrived(Book newBook) throws RemoteException {
+            mHandler.obtainMessage(1003, newBook).sendToTarget();
+        }
+
+    };
     private boolean bindService2 = false;
     public void bindService2(View view){
         Intent intent = new Intent(this, BookManagerService.class);
@@ -181,6 +206,13 @@ public class AidlActivity extends BaseActivity {
     }
     public void unbindService2(View view){
         if(bindService2) {
+            if(null != mRemoteBookManager && mRemoteBookManager.asBinder().isBinderAlive()){
+                try {
+                    mRemoteBookManager.unregisterListner(mOnNewBookArrivedListener);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
             unbindService(serviceConnection2);
             bindService2 = false;
         }
