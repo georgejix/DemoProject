@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
+import com.App;
 import com.AppManager;
 import com.BaseActivity;
 import com.jni.JniTest;
@@ -21,6 +22,7 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.test.activity.TestActivityActivity;
+import com.test.aidl.AidlActivity;
 import com.test.animation.TestAnimationActivity;
 import com.test.bitmap.TestBitmapActivity;
 import com.test.camera.CameraActivity;
@@ -86,6 +88,7 @@ public class MainActivity extends BaseActivity {
                 Log.d(TAG, "OnSystemUiVisibilityChangeListener");
             }
         });
+        App.testString = "MainActivity";
     }
 
     @OnClick(value = {R.id.textview_next_page, R.id.textview_testactivity, R.id.textview_testcamera,
@@ -99,9 +102,12 @@ public class MainActivity extends BaseActivity {
             R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
             R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification,
             R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite,
-            R.id.textview_contentprovider, R.id.textview_service})
+            R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textview_aidl:
+                startActivity(new Intent(this, AidlActivity.class));
+                break;
             case R.id.textview_service:
                 startActivity(new Intent(this, ServiceActivity.class));
                 break;
@@ -234,6 +240,8 @@ public class MainActivity extends BaseActivity {
         super.onResume();
         Log.d("TestActivity", "MainActivity");
         getWindow().getDecorView().setSystemUiVisibility(options);
+
+        Log.d(TAG, "App.testString=" + App.testString);
         /*System.out.println(TAG + "," + nextPage.getWidth());
         nextPage.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
 

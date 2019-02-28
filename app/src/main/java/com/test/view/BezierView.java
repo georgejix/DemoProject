@@ -51,7 +51,6 @@ public class BezierView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int n = 1 / 0;
         if(null != canvas){
             if(null != pointList && pointList.size() > 0){
                 Path path = new Path();
@@ -64,7 +63,16 @@ public class BezierView extends View {
                             point.getX(), point.getY());
                 }
                 canvas.drawPath(path, mainPaint);
+
             }
+
+            /*Path path2 = new Path();
+            path2.moveTo(pointList.get(0).getX(), pointList.get(0).getY());
+            path2.lineTo(pointList.get(1).getX(), pointList.get(1).getY());
+            path2.moveTo(pointList.get(2).getX(), pointList.get(2).getY());
+            path2.lineTo(pointList.get(3).getX(), pointList.get(3).getY());
+            canvas.drawPath(path2, mainPaint);*/
+
         }
     }
 

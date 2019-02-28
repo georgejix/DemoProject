@@ -57,3 +57,9 @@ standard A->singleTask（指定taskAffinity） B->standard C      A在一个stac
 
 library工程中，获取string.xml中string的方法
 SDKInitializer.getContext().getResources().getIdentifier("upgrade_pkg_download_failed", "string", SDKInitializer.getContext().getPackageName())
+
+androidmenifest.xml中process的值有两种形式 “:remote” “com.a.b.c.remote” 第一种中的“：”表示当前包名，私有进程，其他应用不可以和它跑在同一进程，
+全名称表示公用进程，可以和其他应用跑在同一进程（通过shareuid相同，签名相同）
+不同进程，data目录，组件信息，内存数据都不共享
+
+activitythread activitymanager windowmanager managerservice

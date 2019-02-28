@@ -141,8 +141,16 @@
             android:readPermission="com.mplanet.testhandler.READ_CONTENT"
             android:writePermission="com.mplanet.testhandler.WRITE_CONTENT" />
 
-        <activity android:name="com.test.service.ServiceActivity"></activity>
-        <service android:name="com.test.service.MyService"
+        <activity android:name="com.test.service.ServiceActivity" />
+
+        <service
+            android:name="com.test.service.MyService"
+            android:process=":remote" />
+
+        <activity android:name="com.test.aidl.AidlActivity"></activity>
+        <service android:name="com.test.aidl.MessengerService"
+            android:process=":remote"/>
+        <service android:name="com.test.aidl.BookManagerService"
             android:process=":remote"/>
     </application>
 

@@ -9,6 +9,9 @@ public class App extends Application {
     private File projectFile;
     static String path;
 
+    //测试当activity的process不同时，数据不共享
+    public static String testString = "App";
+
     public App(){
         super();
         path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "demoproject";

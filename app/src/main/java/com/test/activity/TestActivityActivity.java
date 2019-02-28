@@ -16,6 +16,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.App;
 import com.BaseActivity;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.event.OnClick;
@@ -51,6 +52,7 @@ public class TestActivityActivity extends BaseActivity {
         screenOrientation = ScreenOrientationUtil.getInstance();
         screenOrientation.start(this);
         editText = (EditText) findViewById(R.id.edittext_t1);
+        Log.d(TAG, "App.testString=" + App.testString);
     }
 
     @OnClick(value = {R.id.textview_main})
