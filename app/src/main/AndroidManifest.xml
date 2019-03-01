@@ -151,11 +151,15 @@
             android:name="com.test.service.MyService"
             android:process=":remote" />
 
-        <activity android:name="com.test.aidl.AidlActivity"></activity>
-        <service android:name="com.test.aidl.MessengerService"
-            android:process=":remote"/>
-        <service android:name="com.test.aidl.BookManagerService"
-            android:process=":remote"/>
+        <activity android:name="com.test.aidl.AidlActivity" />
+
+        <service
+            android:name="com.test.aidl.MessengerService"
+            android:process=":remote" />
+        <service
+            android:name="com.test.aidl.BookManagerService"
+            android:process=":remote" />
+
     </application>
 
 </manifest>

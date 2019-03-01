@@ -29,6 +29,21 @@ import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.mplanet.testhandler.R;
 
+
+/**
+ * dispatchTouchEvent onInterceptTouchEvent onTouchEvent
+ * 三者关系伪代码:
+ *  public boolean dispatchTouchEvent(MotionEvent ev){
+ *      boolean consume = false;
+ *      if(onInterceptTouchEvent(ev)){
+ *          consume = onTouchEvent(ev);
+ *      }else{
+ *          consume = child.dispatchTouchEvent(ev);
+ *      }
+ *      return consume;
+ *  }
+ *  分发，拦截，响应，返回值表示是否消耗当前事件，消耗则不再向下传递，自上而下传递，自下而上消耗
+ */
 @ContentView(R.layout.activity_touch_event)
 public class TouchEventActivity extends Activity {
     private final String TAG = "TouchEventActivity";

@@ -1,7 +1,6 @@
 package com.mplanet.testhandler;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -18,7 +17,6 @@ import com.App;
 import com.AppManager;
 import com.BaseActivity;
 import com.jni.JniTest;
-import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.test.activity.TestActivityActivity;

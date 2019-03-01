@@ -62,4 +62,13 @@ androidmenifest.xml中process的值有两种形式 “:remote” “com.a.b.c.re
 全名称表示公用进程，可以和其他应用跑在同一进程（通过shareuid相同，签名相同）
 不同进程，data目录，组件信息，内存数据都不共享
 
-activitythread activitymanager windowmanager managerservice
+decorView windowmanager activitythread window
+Viewroot对应于ViewRootImpl类，它是连接WindowManager和DecorView的纽带，
+View的三大流程均是通过ViewRoot来完成的。在ActivityThread中，当Activity对象被创建
+完毕后，会将DecorView添加到Window中，同时会创建ViewRootImpl对象，并将ViewRootImpl
+对象和DecorView建立关联，这个过程可参看如下源码：
+root = new ViewRootImpl(view.getContext(),display);
+root.setView(view, wparams, panelParentView);
+
+activitymanager managerservice
+算法 设计模式
