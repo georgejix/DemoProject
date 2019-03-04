@@ -67,3 +67,5 @@ for (Field field : fields) {
     提交
 git merge之后，需要push才会将merge提交到远程仓库
 git revert commitid撤销一次merge
+
+tcpdump -i any -p -s 0 -w /sdcard/capture.pcap
