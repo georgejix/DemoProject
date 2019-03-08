@@ -70,5 +70,9 @@ View的三大流程均是通过ViewRoot来完成的。在ActivityThread中，当
 root = new ViewRootImpl(view.getContext(),display);
 root.setView(view, wparams, panelParentView);
 
+DecorView作为顶级View（FrameLayout），包含竖直方向2个子view：titlebar和android.R.id.content
+可以通过ViewGroup content = findViewById(R.android.id.content)获取，在给activity设置layout时方法是setContentView()
+获取设置的layout，可以通过content.getChildAt(0)
+
 activitymanager managerservice
 算法 设计模式
