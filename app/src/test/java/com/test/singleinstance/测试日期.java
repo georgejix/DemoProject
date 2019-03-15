@@ -15,7 +15,13 @@ public class 测试日期 {
     @Test
     public void test(){
         //t1();
-        t2();
+        //t2();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+        System.out.println(hour + "," + minute + "," + second);
     }
 
     //日期月份+1
