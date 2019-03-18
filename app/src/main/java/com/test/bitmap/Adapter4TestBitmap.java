@@ -58,6 +58,7 @@ public class Adapter4TestBitmap extends BaseAdapter{
         }
         if(cancelPotentialWork(position, viewHolder.imageView)) {
             Bitmap bitmap = BitmapCache.getInstance().getBitmapFromMemCache(position + "");
+            //Bitmap bitmap = BitmapCacheDisk.getInstance().getBitmapFromDiskCache(position + "");
             if(null == bitmap) {
                 BitmapWorkerTask task = new BitmapWorkerTask(viewHolder.imageView);
                 AsyncDrawable asyncDrawable = new AsyncDrawable(task);
@@ -92,6 +93,7 @@ public class Adapter4TestBitmap extends BaseAdapter{
             option.inJustDecodeBounds = false;
             Bitmap bitmap = BitmapFactory.decodeFile(files[data % files.length].getAbsolutePath(), option);
             BitmapCache.getInstance().addBitmapToMemoryCache(data + "", bitmap);
+            //BitmapCacheDisk.getInstance().addBitmapToDiskCache(data + "", bitmap);
             return bitmap;
         }
 

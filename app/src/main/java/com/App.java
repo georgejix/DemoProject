@@ -1,6 +1,7 @@
 package com;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Environment;
 
 import java.io.File;
@@ -14,6 +15,13 @@ public class App extends Application {
 
     public App(){
         super();
+        //disklrucache path
+        /*if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable()) {
+            context.getExternalCacheDir().getPath();
+        }else{
+            context.getCacheDir().getPath();
+        }*/
         path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "demoproject";
         if(null != path){
             projectFile = new File(path);
