@@ -19,7 +19,7 @@
             tools:layout_editor_absoluteY="8dp"
             tools:layout_editor_absoluteX="8dp"
             android:gravity="center_horizontal">
-            <TextView
+            <com.test.touchevent.MyTextView
                 android:id="@+id/textview_test1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

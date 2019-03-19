@@ -93,10 +93,12 @@ public class AidlActivity extends BaseActivity {
 
     public void getStudent(View view){
         //Student student = Student.CREATOR.createFromParcel(parcel);
-        Student student = intent.getParcelableExtra("stu");
-        if(null != student){
-            contentTextView.setText(student.toString());
-        }
+        try {
+            Student student = intent.getParcelableExtra("stu");
+            if (null != student) {
+                contentTextView.setText(student.toString());
+            }
+        }catch (Exception e){}
     }
 
     private Messenger mService;

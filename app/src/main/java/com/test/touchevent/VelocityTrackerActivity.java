@@ -51,6 +51,7 @@ public class VelocityTrackerActivity extends Activity {
                 //可以根据index或者pointid获取对应点击事件（主事件、副事件）的数值
                 Log.d(TAG, "xx:" + VelocityTrackerCompat.getXVelocity(mVelocityTracker, pointerId));
                 Log.d(TAG, "vy:" + mVelocityTracker.getYVelocity());
+                Log.d(TAG, "vy:" + mVelocityTracker.getYVelocity(pointerId));
                 if(-1 != event.findPointerIndex(pointerId)) {
                     Log.d(TAG, "x=" + event.getX(event.findPointerIndex(pointerId)));
                 }

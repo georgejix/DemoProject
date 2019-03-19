@@ -43,6 +43,16 @@ public class SqliteActivity extends Activity {
         database = helper.getWritableDatabase();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(null != database){
+            try {
+                database.close();
+            }catch (Exception e){}
+        }
+    }
+
     public void add(View view){
         insertStudents();
     }

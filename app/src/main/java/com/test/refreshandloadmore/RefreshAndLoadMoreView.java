@@ -21,10 +21,10 @@ public class RefreshAndLoadMoreView extends SwipeRefreshLayout {
         super(context, attrs);
         Resources res = getResources();
         //通过颜色资源文件设置进度动画的颜色资源
-        setColorSchemeColors(res.getColor(R.color.refresh_color_1),
-                res.getColor(R.color.refresh_color_2),
-                res.getColor(R.color.refresh_color_3),
-                res.getColor(R.color.refresh_color_4));
+        setColorSchemeResources(R.color.refresh_color_1,
+                R.color.refresh_color_2,
+                R.color.refresh_color_3,
+                R.color.refresh_color_4);
     }
     public void setLoadMoreListView(LoadMoreListView mLoadMoreListView) {
         this.mLoadMoreListView = mLoadMoreListView;

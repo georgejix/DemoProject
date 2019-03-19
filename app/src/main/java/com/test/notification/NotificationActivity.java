@@ -33,7 +33,7 @@ public class NotificationActivity extends Activity {
 
     public void notification2(View view){
         initNotification();
-        if(null != notificationManager && null != notification) {
+        if(null != notificationManager && null != notification && null != builder) {
             String title = null;
             String msg = System.currentTimeMillis() + "";
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.checkbox_checked);

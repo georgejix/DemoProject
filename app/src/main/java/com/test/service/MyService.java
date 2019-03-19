@@ -20,6 +20,7 @@ public class MyService extends Service{
         Log.d(TAG, "onCreate");
     }
 
+    //多次调用，只有第一次执行
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -27,12 +28,14 @@ public class MyService extends Service{
         return null;
     }
 
+    //多次调用，多次执行
     @Override
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         Log.d(TAG, "onStart");
     }
 
+    //多次调用，多次执行
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand");
