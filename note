@@ -76,3 +76,17 @@ git commit --amend
 c++常用库
 https://www.cnblogs.com/skyus/articles/8524408.html
 
+aosp官方地址：
+https://source.android.google.cn/
+repo_sync.sh：
+#!/bin/bash
+echo "======start repo sync======"
+repo sync
+while [ $? == 1 ]; do
+    echo "======sync failed, re-sync again======"
+    sleep 3
+    repo sync
+done
+echo "======sync sucessed !======"
+
+
