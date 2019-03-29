@@ -55,6 +55,7 @@ import com.test.view.BezierActivity;
 import com.test.view.CutPicActivity;
 import com.test.view.ImageViewActivity;
 import com.test.view.TestSomeViewActivity;
+import com.test.view.TrapezoidLayoutActivity;
 import com.test.xml.TestXmlActivity;
 
 import java.util.ArrayList;
@@ -100,9 +101,12 @@ public class MainActivity extends BaseActivity {
             R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
             R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification,
             R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite,
-            R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl})
+            R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl, R.id.梯形layout})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.梯形layout:
+                startActivity(new Intent(this, TrapezoidLayoutActivity.class));
+                break;
             case R.id.textview_aidl:
                 startActivity(new Intent(this, AidlActivity.class));
                 break;

@@ -31,8 +31,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.mplanet.testhandler.READ_CONTENT" />
     <uses-permission android:name="com.mplanet.testhandler.WRITE_CONTENT" />
-
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <!--
     验证有没有添加自定义权限
@@ -162,6 +161,7 @@
             android:name="com.test.aidl.BookManagerService"
             android:process=":remote" />
 
+        <activity android:name="com.test.view.TrapezoidLayoutActivity"></activity>
     </application>
 
 </manifest>

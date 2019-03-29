@@ -12,4 +12,13 @@
         <attr name="mainTextSize" format="dimension"/>
         <attr name="perLineHeight" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="TrapesoidLayout">
+        <attr name="triangleHeight" format="dimension"/>
+        <attr name="orientation" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
+        <attr name="backgroundColor" format="color"/>
+    </declare-styleable>
 </resources>
