@@ -65,6 +65,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!--&lt;!&ndash; for deep-link &ndash;&gt;
+            <intent-filter>
+                &lt;!&ndash; 必须加否否无法响应点击链接的 Intent&ndash;&gt;
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="http"
+                    android:host="com.anju.smarthome"
+                    />
+            </intent-filter>-->
         </activity>
         <activity android:name="com.test.handler.TestHandlerActivity" />
         <activity
