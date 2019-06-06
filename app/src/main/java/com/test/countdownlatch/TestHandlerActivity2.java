@@ -34,7 +34,8 @@ public class TestHandlerActivity2 extends Activity {
                 public void run() {
                     try {
 
-                        Message msg = new Message();
+                        //Message msg = new Message();
+                        Message msg = viewHandler.obtainMessage();
                         msg.what = MESSAGE1;
                         Bundle bundle = new Bundle();
                         bundle.putInt("num", i);

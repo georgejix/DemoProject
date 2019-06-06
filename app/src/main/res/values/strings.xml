@@ -16,6 +16,7 @@
     <string name="choosedate_error2">日期间隔天数最大31天</string>
     <string name="choosedate_error3">天</string>
     <string name="choosedate_error4">结束时间不可以小于开始时间</string>
+    <string name="alarm_service_contract">用户通过购买51安居智能产品并激活，即视为开始享受51安居智能终端服务，收取资费及相关服务费（只包含智能产品物联服务费用），按照安全应急应用中显示的计费标准或计价规则开始计算，安全应急应用中会显示最近实际发生的资费及相关服务费，用户应使用相关的支付方式(包括但不限于微信，支付宝，信用卡，借记卡等，具体以安全应急应用中提供的支付方式为准)及时支付全部费用，此项服务为自缴费开始为不可退款服务。</string>
 
 
     <!-- TypedArray titleArray = context.getResources().obtainTypedArray(

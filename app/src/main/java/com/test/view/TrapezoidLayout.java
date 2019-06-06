@@ -55,7 +55,7 @@ public class TrapezoidLayout extends RelativeLayout{
         if(triangleHeight > (bottom - top)){
             triangleHeight = 0;
         }
-        if(null == path){
+        //if(null == path){
             path = new Path();
             int width = right - left;
             int height = bottom - top;
@@ -73,7 +73,7 @@ public class TrapezoidLayout extends RelativeLayout{
                 path.lineTo(0, height);
             }
 
-        }
+        //}
 
         Log.d(TAG, "onLayout:" + left + "," + top + "," + right + "," + bottom);
         Log.d(TAG, "onLayout:width=" + getMeasuredWidth() + ",height=" + getMeasuredHeight());

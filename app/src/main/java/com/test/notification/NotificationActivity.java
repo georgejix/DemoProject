@@ -33,7 +33,7 @@ public class NotificationActivity extends Activity {
 
     public void notification2(View view){
         initNotification();
-        if(null != notificationManager && null != notification && null != builder) {
+        if(null != notificationManager  && null != builder) {
             String title = null;
             String msg = System.currentTimeMillis() + "";
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.checkbox_checked);
@@ -53,7 +53,7 @@ public class NotificationActivity extends Activity {
 
     public void notification(View view){
         initNotification();
-        if(null != notificationManager && null != notification && null != builder) {
+        if(null != notificationManager && null != builder) {
             String title = null;
             String msg = System.currentTimeMillis() + "";
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.checkbox_checked);
@@ -91,7 +91,7 @@ public class NotificationActivity extends Activity {
     }
 
     private void update(int max, int progress, boolean centern){
-        if(null != notificationManager && null != updateNotification && null != updateBuilder) {
+        if(null != notificationManager && null != updateBuilder) {
             String title = null;
             String msg = System.currentTimeMillis() + "";
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.checkbox_checked);
@@ -115,12 +115,11 @@ public class NotificationActivity extends Activity {
 
     Notification.Builder builder;
     NotificationManager notificationManager;
-    Notification notification;
+    //Notification notification;
     private void initNotification() {
         if (notificationManager == null) {
             notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
         }
-        if (notification == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 String channelID = getPackageName() + "1";
                 String channelName = "alarm";
@@ -137,26 +136,23 @@ public class NotificationActivity extends Activity {
 
                 //创建通知时指定channelID
                 builder.setChannelId(channelID);
-                notification = builder.build();
+                //notification = builder.build();
 
             } else {
                 builder = new Notification.Builder(getApplicationContext());
-                notification = builder
+                /*notification = builder
                         .setContentTitle(getApplicationContext().getResources().getString(R.string.app_name))
                         .setSmallIcon(R.mipmap.checkbox_checked).setWhen(System.currentTimeMillis()).build();
-                notification.flags = Notification.FLAG_ONGOING_EVENT;
+                notification.flags = Notification.FLAG_ONGOING_EVENT;*/
             }
-        }
     }
 
 
     Notification.Builder updateBuilder;
-    Notification updateNotification;
     private void initUpdateNotification() {
         if (notificationManager == null) {
             notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
         }
-        if (updateNotification == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 String channelID = getPackageName() + "2";
                 String channelName = "update";
@@ -173,15 +169,14 @@ public class NotificationActivity extends Activity {
 
                 //创建通知时指定channelID
                 updateBuilder.setChannelId(channelID);
-                updateNotification = updateBuilder.build();
+                //updateNotification = updateBuilder.build();
 
             } else {
                 updateBuilder = new Notification.Builder(getApplicationContext());
-                updateNotification = updateBuilder
+                updateBuilder
                         .setContentTitle(getApplicationContext().getResources().getString(R.string.app_name))
-                        .setSmallIcon(R.mipmap.checkbox_checked).setWhen(System.currentTimeMillis()).build();
-                updateNotification.flags = Notification.FLAG_ONGOING_EVENT;
+                        .setSmallIcon(R.mipmap.checkbox_checked).setWhen(System.currentTimeMillis());
+                //updateNotification.flags = Notification.FLAG_ONGOING_EVENT;
             }
-        }
     }
 }

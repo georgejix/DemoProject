@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.test.touchevent.TouchEvent2Activity"
+    android:orientation="vertical">
+<com.test.touchevent.ViewGroup1
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    android:orientation="vertical">
+    <com.test.touchevent.ViewGroup2
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:background="@color/yellow"
+        android:orientation="vertical">
+        <com.test.touchevent.View1
+            android:id="@+id/view1"
+            android:layout_width="500dp"
+            android:layout_height="300dp"
+            android:background="@color/blue">
+        </com.test.touchevent.View1>
+    </com.test.touchevent.ViewGroup2>
+</com.test.touchevent.ViewGroup1>
+</LinearLayout>

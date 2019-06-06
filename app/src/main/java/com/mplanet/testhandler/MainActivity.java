@@ -32,6 +32,7 @@ import com.test.contentprovider.ContentProviderActivity;
 import com.test.countdownlatch.TestHandlerActivity2;
 import com.test.deviceawake.DeviceAwakeActivity;
 import com.test.dialogactivity.DialogActivity;
+import com.test.ftp.FtpActivity;
 import com.test.handler.TestHandlerActivity;
 import com.test.http.HttpActivity;
 import com.test.intentservice.RSSPullService;
@@ -57,6 +58,7 @@ import com.test.view.ImageViewActivity;
 import com.test.view.TestSomeViewActivity;
 import com.test.view.TrapezoidLayoutActivity;
 import com.test.xml.TestXmlActivity;
+import com.test.touchevent.TouchEvent2Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,9 +103,19 @@ public class MainActivity extends BaseActivity {
             R.id.textview_checkbox, R.id.textview_someview, R.id.textview_http, R.id.textview_thread,
             R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification,
             R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite,
-            R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl, R.id.梯形layout})
+            R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl, R.id.梯形layout,
+            R.id.自定义handler, R.id.自定义view, R.id.ftp})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.ftp:
+                    startActivity(new Intent(this, FtpActivity.class));
+                break;
+            case R.id.自定义view:
+                startActivity(new Intent(this, TouchEvent2Activity.class));
+                break;
+            case R.id.自定义handler:
+                startActivity(new Intent(this, com.test.handler.TestHandlerActivity2.class));
+                break;
             case R.id.梯形layout:
                 startActivity(new Intent(this, TrapezoidLayoutActivity.class));
                 break;
@@ -286,7 +298,7 @@ public class MainActivity extends BaseActivity {
 
     private void checkPermission() {
         List<String> permissionLists = new ArrayList<>();
-        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) !=
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED) {
             permissionLists.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         }

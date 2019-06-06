@@ -76,3 +76,15 @@ DecorView作为顶级View（FrameLayout），包含竖直方向2个子view：tit
 
 activitymanager managerservice
 算法 设计模式
+
+
+android9.0 activity启动：
+https://www.jianshu.com/p/e1153fed5b23
+https://www.jianshu.com/p/824db350dce6
+
+oncreate()中view.getWidth()=0
+Activity.phonewindow.(ViewGroup)mContentParent
+phonewindow.setContentView()->mContentParent.requestApplyInsets()->view.requestApplyInsets()->view.requestFitSystemWindows()->viewrootimpl.requestFitSystemWindows()
+->viewrootimpl.scheduleTraversals()->handler.send(mTraversalRunnable)->viewrootimpl.doTraversal()->viewrootimpl.performTraversals()->viewrootimpl.performLayout()
+->host.layout()
+使用handler，getwidth()时,view未绘画完成

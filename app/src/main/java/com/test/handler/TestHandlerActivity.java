@@ -3,6 +3,7 @@ package com.test.handler;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import com.mplanet.testhandler.R;
 
 public class TestHandlerActivity extends Activity {
+    private final String TAG = "TestHandlerActivity";
+
     private FrameLayout frameLayout;
     private FragmentManager fm;
     private TextView label1;

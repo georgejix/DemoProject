@@ -15,24 +15,18 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <!-- 访问网络，网络定位需要上网 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <!-- 唤醒锁 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 唤醒锁 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.mplanet.testhandler.READ_CONTENT" />
     <uses-permission android:name="com.mplanet.testhandler.WRITE_CONTENT" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
     <!--
     验证有没有添加自定义权限
     if(PackageManager.PERMISSION_DENIED == checkCallingOrSelfPermission("com.mplanet.testhandler.WRITE_CONTENT"))
@@ -54,6 +48,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="com.test.ftp.FtpActivity"></activity>
+        <activity android:name="com.test.touchevent.TouchEvent2Activity" />
+        <activity android:name="com.test.handler.TestHandlerActivity2" />
         <activity android:name=".MainActivity">
 
             <!--
@@ -65,18 +62,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <!--&lt;!&ndash; for deep-link &ndash;&gt;
             <intent-filter>
-                &lt;!&ndash; 必须加否否无法响应点击链接的 Intent&ndash;&gt;
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
-                    android:scheme="http"
                     android:host="com.anju.smarthome"
-                    />
-            </intent-filter>-->
+                    android:scheme="app" />
+            </intent-filter>
         </activity>
         <activity android:name="com.test.handler.TestHandlerActivity" />
         <activity
@@ -173,7 +168,7 @@
             android:name="com.test.aidl.BookManagerService"
             android:process=":remote" />
 
-        <activity android:name="com.test.view.TrapezoidLayoutActivity"></activity>
+        <activity android:name="com.test.view.TrapezoidLayoutActivity" />
     </application>
 
 </manifest>
