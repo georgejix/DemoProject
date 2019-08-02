@@ -447,6 +447,46 @@
                 android:text="ftp"
                 android:textSize="25sp"/>
 
+            <TextView
+                android:id="@+id/save_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="保存sharedpreference"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/mediaplayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="mediaplayer"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/yuvtobitmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="yuv转bitmap"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/jpeg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="yuv,jpeg,rgb互转"
+                android:textSize="25sp"/>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

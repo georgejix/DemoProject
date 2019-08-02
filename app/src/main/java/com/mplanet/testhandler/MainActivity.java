@@ -22,6 +22,7 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.test.activity.TestActivityActivity;
 import com.test.aidl.AidlActivity;
 import com.test.animation.TestAnimationActivity;
+import com.test.audio.MediaPlayerActivity;
 import com.test.bitmap.TestBitmapActivity;
 import com.test.camera.CameraActivity;
 import com.test.checkbox.CheckBoxActivity;
@@ -36,6 +37,7 @@ import com.test.ftp.FtpActivity;
 import com.test.handler.TestHandlerActivity;
 import com.test.http.HttpActivity;
 import com.test.intentservice.RSSPullService;
+import com.test.jpeg.JpegYuvRgbActivity;
 import com.test.keyboardinput.InputActivity;
 import com.test.net.TestNetActivity;
 import com.test.notification.NotificationActivity;
@@ -44,6 +46,7 @@ import com.test.opengles.OpenglesActivity01;
 import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
 import com.test.regex.RegexActivity;
 import com.test.service.ServiceActivity;
+import com.test.sharedpreference.TestSharedpreferenceActivity;
 import com.test.sqlite.SqliteActivity;
 import com.test.swiperefresh.SwipeRefreshActivity;
 import com.test.systemphoto.ThumbnailActivity;
@@ -59,6 +62,7 @@ import com.test.view.TestSomeViewActivity;
 import com.test.view.TrapezoidLayoutActivity;
 import com.test.xml.TestXmlActivity;
 import com.test.touchevent.TouchEvent2Activity;
+import com.test.yuv.YuvToBitmapActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,11 +108,24 @@ public class MainActivity extends BaseActivity {
             R.id.textview_timer, R.id.textview_imageview, R.id.textview_cutpic, R.id.textview_notification,
             R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite,
             R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl, R.id.梯形layout,
-            R.id.自定义handler, R.id.自定义view, R.id.ftp})
+            R.id.自定义handler, R.id.自定义view, R.id.ftp, R.id.save_sp, R.id.mediaplayer,
+            R.id.yuvtobitmap, R.id.jpeg})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.jpeg:
+                startActivity(new Intent(this, JpegYuvRgbActivity.class));
+                break;
+            case R.id.yuvtobitmap:
+                startActivity(new Intent(this, YuvToBitmapActivity.class));
+                break;
+            case R.id.mediaplayer:
+                startActivity(new Intent(this, MediaPlayerActivity.class));
+                break;
+            case R.id.save_sp:
+                startActivity(new Intent(this, TestSharedpreferenceActivity.class));
+                break;
             case R.id.ftp:
-                    startActivity(new Intent(this, FtpActivity.class));
+                startActivity(new Intent(this, FtpActivity.class));
                 break;
             case R.id.自定义view:
                 startActivity(new Intent(this, TouchEvent2Activity.class));

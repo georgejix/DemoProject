@@ -45,6 +45,13 @@ public class TestHandlerActivity2 extends Activity {
                         //Thread.sleep(200);
                         Log.d(TAG, "sendMessage");
                         viewHandler.sendMessage(msg);
+                        /*Message msg = viewHandler.obtainMessage();
+                        msg.what = MESSAGE1;
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("num", i);
+                        msg.setData(bundle);
+                        viewHandler.removeMessages(MESSAGE1);
+                        viewHandler.sendMessageDelayed(msg, 1000);*/
                     } catch (Exception e) {
                         Log.d(TAG, e + "");
                     }
