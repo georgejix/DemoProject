@@ -8,11 +8,14 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.BaseActivity;
+import com.lidroid.xutils.view.annotation.ContentView;
 import com.mplanet.testhandler.R;
 
 import java.io.IOException;
 
-public class CameraActivity extends Activity {
+@ContentView(R.layout.activity_camera)
+public class CameraActivity extends BaseActivity {
     private final String TAG = "CameraActivity";
 
     private SurfaceView surfaceView;
@@ -23,7 +26,6 @@ public class CameraActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera);
         surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
 
         mCamera = Camera.open();
@@ -39,6 +41,12 @@ public class CameraActivity extends Activity {
             // Call stopPreview() to stop updating the preview surface.
             mCamera.stopPreview();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopPreviewAndFreeCamera();
     }
 
     /**

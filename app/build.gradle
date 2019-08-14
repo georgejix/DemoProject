@@ -26,7 +26,7 @@ android {
     }
     sourceSets {
         main {
-            jniLibs.srcDirs = ['libs']
+            jniLibs.srcDirs = ['src/main/jniLibs']
         }
     }
     externalNativeBuild {
@@ -35,14 +35,20 @@ android {
         }
     }
 }
-
+repositories {
+    flatDir {
+        dirs 'libs' //自己项目的libs对应目录 aar
+    }
+}
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //compile files('libs/xUtils-2.6.14.jar')
     compile files('libs/gson-2.3.1.jar')
+    compile files('libs/opencv-library-2.4.5.jar')
+    compile files('libs/commons-net-3.6.jar')
+    compile files('libs/xUtils-2.6.14.jar')
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.jakewharton:disklrucache:2.0.2'

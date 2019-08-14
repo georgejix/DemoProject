@@ -24,6 +24,8 @@ import com.test.aidl.AidlActivity;
 import com.test.animation.TestAnimationActivity;
 import com.test.audio.MediaPlayerActivity;
 import com.test.bitmap.TestBitmapActivity;
+import com.test.camera.Camera2Activity;
+import com.test.camera.Camera3Activity;
 import com.test.camera.CameraActivity;
 import com.test.checkbox.CheckBoxActivity;
 import com.test.choosedate.ChooseDateActivity;
@@ -109,9 +111,15 @@ public class MainActivity extends BaseActivity {
             R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite,
             R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl, R.id.梯形layout,
             R.id.自定义handler, R.id.自定义view, R.id.ftp, R.id.save_sp, R.id.mediaplayer,
-            R.id.yuvtobitmap, R.id.jpeg})
+            R.id.yuvtobitmap, R.id.jpeg, R.id.camera2, R.id.camera3})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.camera3:
+                startActivity(new Intent(this, Camera3Activity.class));
+                break;
+            case R.id.camera2:
+                startActivity(new Intent(this, Camera2Activity.class));
+                break;
             case R.id.jpeg:
                 startActivity(new Intent(this, JpegYuvRgbActivity.class));
                 break;
