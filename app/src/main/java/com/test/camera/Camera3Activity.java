@@ -1,8 +1,16 @@
 package com.test.camera;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.hardware.Camera;
+import android.media.CamcorderProfile;
+import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -12,19 +20,23 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.App;
 import com.BaseActivity;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.mplanet.testhandler.R;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 //camera1方式的一些功能demo
 @ContentView(R.layout.activity_camera3)
-public class Camera3Activity extends BaseActivity {
+public class Camera3Activity extends BaseActivity implements MediaRecorder.OnInfoListener, Handler.Callback {
     private final static String TAG = "Camera2Activity";
 
     @ViewInject(R.id.layout_preview)
@@ -37,6 +49,10 @@ public class Camera3Activity extends BaseActivity {
     private static Object mOpenCameraLock = new Object();
     private int mScreenDegree = 0;
     private LocalAutoFocusCallback mAutoFocusCallback;
+    private Handler mBackHandler;
+
+    private final static int START_RECORD = 1;
+    private final static int STOP_RECORD = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,9 +119,20 @@ public class Camera3Activity extends BaseActivity {
         }
     }
 
-    @OnClick(value = {R.id.textview_facing, R.id.textview_focus, R.id.textview_flash, R.id.textview_scene})
+    @OnClick(value = {R.id.textview_facing, R.id.textview_focus, R.id.textview_flash, R.id.textview_scene,
+     R.id.textview_takephoto, R.id.textview_takevideo, R.id.textview_resolution, R.id.textview_fps})
     private void onClick(View view){
         switch (view.getId()){
+            case R.id.textview_fps:
+                break;
+            case R.id.textview_resolution:
+                break;
+            case R.id.textview_takevideo:
+                takeVideo();
+                break;
+            case R.id.textview_takephoto:
+                takePhoto();
+                break;
             case R.id.textview_scene:
                 toggleScene();
                 break;
@@ -119,6 +146,127 @@ public class Camera3Activity extends BaseActivity {
                 toggleFacing();
                 break;
         }
+    }
+
+    private void takeVideo(){
+        if(!isRecording){
+            mBackHandler.sendEmptyMessage(START_RECORD);
+        }else {
+            mBackHandler.sendEmptyMessage(STOP_RECORD);
+        }
+    }
+
+    private MediaRecorder mediaRecorder;
+    private boolean isRecording = false;
+    protected boolean preparemediaRecorder() {
+        if(null == mCamera)
+            return false;
+        mCamera.lock();
+        mCamera.unlock();
+        mediaRecorder = new MediaRecorder();
+        try {
+            mediaRecorder.setCamera(mCamera);
+            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+            mediaRecorder.setVideoSource(MediaRecorder.VideoSource.DEFAULT);
+
+            CamcorderProfile camcorderProfile = CamcorderProfile.get(mCurrentCameraId, CamcorderProfile.QUALITY_720P);
+
+            //输出格式
+            mediaRecorder.setOutputFormat(camcorderProfile.fileFormat);
+            //视频帧率
+            mediaRecorder.setVideoFrameRate(camcorderProfile.videoFrameRate);
+            //视频大小
+            mediaRecorder.setVideoSize(mPreviceSurface.getHeight(), mPreviceSurface.getWidth());
+            //视频比特率
+            mediaRecorder.setVideoEncodingBitRate(camcorderProfile.videoBitRate);
+            //视频编码器
+            mediaRecorder.setVideoEncoder(camcorderProfile.videoCodec);
+
+            //音频编码率
+            mediaRecorder.setAudioEncodingBitRate(camcorderProfile.audioBitRate);
+            //音频声道
+            mediaRecorder.setAudioChannels(camcorderProfile.audioChannels);
+            //音频采样率
+            mediaRecorder.setAudioSamplingRate(camcorderProfile.audioSampleRate);
+            //音频编码器
+            mediaRecorder.setAudioEncoder(camcorderProfile.audioCodec);
+
+            //输出路径
+            mediaRecorder.setOutputFile(App.getFile() + File.separator + System.currentTimeMillis() + ".mp4");
+
+            /*//设置视频输出的最大尺寸
+            if (mCameraConfigProvider.getVideoFileSize() > 0) {
+                mediaRecorder.setMaxFileSize(mCameraConfigProvider.getVideoFileSize());
+                mediaRecorder.setOnInfoListener(this);
+            }
+
+            //设置视频输出的最大时长
+            if (mCameraConfigProvider.getVideoDuration() > 0) {
+                mediaRecorder.setMaxDuration(mCameraConfigProvider.getVideoDuration());
+                mediaRecorder.setOnInfoListener(this);
+            }*/
+            mediaRecorder.setOrientationHint(mBackCameraId == mCurrentCameraId ? mCurrentCameraOrientation
+                    : 180 + mCurrentCameraOrientation);
+
+            //准备
+            mediaRecorder.prepare();
+
+            return true;
+        } catch (IllegalStateException error) {
+            Log.e(TAG, "IllegalStateException preparing MediaRecorder: " + error.getMessage());
+        } catch (IOException error) {
+            Log.e(TAG, "IOException preparing MediaRecorder: " + error.getMessage());
+        } catch (Throwable error) {
+            Log.e(TAG, "Error during preparing MediaRecorder: " + error.getMessage());
+        }
+        releaseVideoRecorder();
+        return false;
+    }
+
+    protected void releaseVideoRecorder() {
+        try {
+            if (mediaRecorder != null) {
+                mediaRecorder.reset();
+                mediaRecorder.release();
+            }
+        } catch (Exception ignore) {
+
+        } finally {
+            mediaRecorder = null;
+        }
+    }
+
+    private void takePhoto(){
+        if(null == mCamera)
+            return;
+        mCamera.takePicture(null, null, null, new Camera.PictureCallback() {
+            @Override
+            public void onPictureTaken(byte[] data, Camera camera) {
+                String photoPath = App.getFile() + File.separator + System.currentTimeMillis() + ".jpg";
+                FileOutputStream fos = null;
+                try {
+                    fos = new FileOutputStream(new File(photoPath));
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+                    Matrix matrix = new Matrix();
+                    matrix.setRotate(mBackCameraId == mCurrentCameraId ? mCurrentCameraOrientation
+                            : 180 + mCurrentCameraOrientation);
+                    Bitmap bitmap_ = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
+                            bitmap.getHeight(), matrix, true);
+                    bitmap_.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if(null != fos){
+                        try {
+                            fos.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                camera.startPreview();
+            }
+        });
     }
 
     private void toggleScene(){
@@ -161,6 +309,8 @@ public class Camera3Activity extends BaseActivity {
 
     //设置区域聚焦
     private void focusArea(float rawx, float rawy){
+        if(mFrontCameraId == mCurrentCameraId)
+            return;
         //左上角(-1000,-1000) 右下角(1000,1000)
         float x = rawx - mPreviceSurface.getWidth() / 2;
         float y = rawy - mPreviceSurface.getHeight() / 2;
@@ -279,6 +429,9 @@ public class Camera3Activity extends BaseActivity {
                 return true;
             }
         });
+        HandlerThread handlerThread = new HandlerThread(TAG);
+        handlerThread.start();
+        mBackHandler = new Handler(handlerThread.getLooper(), this);
     }
 
     class SurfaceCallback implements SurfaceHolder.Callback{
@@ -356,5 +509,37 @@ public class Camera3Activity extends BaseActivity {
         if(null == str)
             return;
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onInfo(MediaRecorder mr, int what, int extra) {
+        if (MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED == what) {
+            //到达最大时长
+        } else if (MediaRecorder.MEDIA_RECORDER_INFO_MAX_FILESIZE_REACHED == what) {
+            //到达最大尺寸
+        }
+    }
+
+    @Override
+    public boolean handleMessage(Message msg) {
+        switch (msg.what){
+            case START_RECORD:
+                if(preparemediaRecorder()) {
+                    mediaRecorder.start();
+                    isRecording = true;
+                    showToast("start recording");
+                }
+                break;
+            case STOP_RECORD:
+                mediaRecorder.setOnErrorListener(null);
+                mediaRecorder.setOnInfoListener(null);
+                mediaRecorder.setPreviewDisplay(null);
+                mediaRecorder.stop();
+                releaseVideoRecorder();
+                isRecording = false;
+                showToast("end recording");
+                break;
+        }
+        return true;
     }
 }

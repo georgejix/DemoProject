@@ -12,29 +12,5 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:gravity="center_vertical"/>
-        <TextView
-            android:id="@+id/textview_focus"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="聚焦"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:gravity="center_vertical"/>
-        <TextView
-            android:id="@+id/textview_flash"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="闪光灯"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:gravity="center_vertical"/>
-        <TextView
-            android:id="@+id/textview_scene"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="场景"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:gravity="center_vertical"/>
     </LinearLayout>
 </merge>
