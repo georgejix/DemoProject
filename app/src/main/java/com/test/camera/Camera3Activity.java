@@ -2,6 +2,7 @@ package com.test.camera;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.hardware.Camera;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -34,9 +36,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.microedition.khronos.opengles.GL;
+
 //camera1方式的一些功能demo
 @ContentView(R.layout.activity_camera3)
-public class Camera3Activity extends BaseActivity implements MediaRecorder.OnInfoListener, Handler.Callback {
+public class Camera3Activity extends BaseActivity implements MediaRecorder.OnInfoListener, Handler.Callback ,
+        Camera.PreviewCallback {
     private final static String TAG = "Camera2Activity";
 
     @ViewInject(R.id.layout_preview)
@@ -105,6 +110,21 @@ public class Camera3Activity extends BaseActivity implements MediaRecorder.OnInf
         mCamera = Camera.open(mCurrentCameraId);
         mCamera.setDisplayOrientation(mCurrentCameraOrientation);
 
+        Camera.Parameters parameters = mCamera.getParameters();
+        parameters.setPreviewFormat(ImageFormat.NV21);
+        List<int[]> fpsList = parameters.getSupportedPreviewFpsRange();
+        for(int[] i : fpsList){
+            StringBuffer sb = new StringBuffer();
+            for(int i_ : i){
+                sb.append(i_).append(",");
+            }
+            Log.d(TAG, sb.toString());
+        }
+        parameters.setPreviewFpsRange(fpsList.get(3)[0], fpsList.get(3)[1]);
+        mCamera.setParameters(parameters);
+        mCamera.setPreviewCallback(this);
+        //mCamera.setPreviewCallbackWithBuffer(this);
+
         if(null == mSurfaceCallback) {
             mSurfaceCallback = new SurfaceCallback();
             mPreviceSurface.getHolder().addCallback(mSurfaceCallback);
@@ -117,6 +137,7 @@ public class Camera3Activity extends BaseActivity implements MediaRecorder.OnInf
                 e.printStackTrace();
             }
         }
+
     }
 
     @OnClick(value = {R.id.textview_facing, R.id.textview_focus, R.id.textview_flash, R.id.textview_scene,
@@ -171,6 +192,14 @@ public class Camera3Activity extends BaseActivity implements MediaRecorder.OnInf
 
             CamcorderProfile camcorderProfile = CamcorderProfile.get(mCurrentCameraId, CamcorderProfile.QUALITY_720P);
 
+            Log.d(TAG, "fileFormat=" + camcorderProfile.fileFormat
+                    + " videoFrameRate=" + camcorderProfile.videoFrameRate
+                    + " videoBitRate=" + camcorderProfile.videoBitRate
+                    + " videoCodec=" + camcorderProfile.videoCodec
+                    + " audioBitRate=" + camcorderProfile.audioBitRate
+                    + " audioChannels=" + camcorderProfile.audioChannels
+                    + " audioSampleRate=" + camcorderProfile.audioSampleRate
+                    + " audioCodec=" + camcorderProfile.audioCodec);
             //输出格式
             mediaRecorder.setOutputFormat(camcorderProfile.fileFormat);
             //视频帧率
@@ -541,5 +570,11 @@ public class Camera3Activity extends BaseActivity implements MediaRecorder.OnInf
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void onPreviewFrame(byte[] data, Camera camera) {
+        Log.d(TAG, "onPreviewFrame");
+        System.out.println(TAG + " onPreviewFrame");
     }
 }
