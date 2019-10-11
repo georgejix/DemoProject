@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.nsd.NsdManager;
 import android.net.nsd.NsdServiceInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -15,7 +14,6 @@ import com.mplanet.testhandler.R;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
-import java.util.concurrent.ExecutionException;
 
 @ContentView(R.layout.activity_test_nsd)
 public class TestNsdActivity extends Activity {

@@ -3,12 +3,14 @@ package com.test.sqlite;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by jix on 2019/2/21.
  */
 
 public class SQLiteDbHelper extends SQLiteOpenHelper {
+    private static final String TAG = "SQLiteDbHelper";
 
     public static final String DB_NAME = "database.db";
     public static final int DB_VERSION = 1;
@@ -17,6 +19,7 @@ public class SQLiteDbHelper extends SQLiteOpenHelper {
     private static final String STUDENTS_CREATE_TABLE_SQL = "create table " + TABLE_STUDENT + "("
             + "id integer primary key autoincrement,"
             + "name varchar(20) not null,"
+            //+ "aaa varchar(20) default '2',"
             + "tel_no varchar(11) not null,"
             + "cls_id integer not null"
             + ");";
@@ -45,6 +48,11 @@ public class SQLiteDbHelper extends SQLiteOpenHelper {
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.d(TAG, "onDowngrade");
     }
 
     @Override

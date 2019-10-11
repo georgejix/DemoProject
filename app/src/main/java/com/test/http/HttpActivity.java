@@ -3,11 +3,9 @@ package com.test.http;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.lidroid.xutils.ViewUtils;
@@ -15,12 +13,6 @@ import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.mplanet.testhandler.R;
 import com.test.util.HttpURLConnectionUtil;
-import com.test.util.HttpUtils;
-
-import java.io.File;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 @ContentView(R.layout.activity_http)
 public class HttpActivity extends Activity {

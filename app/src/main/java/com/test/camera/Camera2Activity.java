@@ -1,9 +1,6 @@
 package com.test.camera;
 
-import android.content.res.Configuration;
 import android.hardware.Camera;
-import android.hardware.SensorManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.OrientationEventListener;

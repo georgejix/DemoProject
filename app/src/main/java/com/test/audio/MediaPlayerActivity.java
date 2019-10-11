@@ -1,14 +1,11 @@
 package com.test.audio;
 
-import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.net.Uri;
-import android.os.Environment;
-import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 
@@ -18,8 +15,6 @@ import com.lidroid.xutils.view.annotation.ContentView;
 import com.mplanet.testhandler.R;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -37,8 +32,8 @@ public class MediaPlayerActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        audioPath1 = App.getFile() + File.separator + "humanvoice_v1_1.m4a";
-        audioPath2 = App.getFile() + File.separator + "humanvoice_v2_1.m4a";
+        audioPath1 = App.getFile() + File.separator + "fcw_h_be.wav";
+        audioPath2 = App.getFile() + File.separator + "fcw_h_be.wav";
         if(null == soundPool)
             soundPool = new SoundPool(2, AudioManager.STREAM_ALARM, 0);
         soundId = soundPool.load(audioPath2, 1);
@@ -63,12 +58,14 @@ public class MediaPlayerActivity extends BaseActivity {
     }
 
     int soundId;
+    int streamid = -1;
     public void play2(View view){
-        AudioManager mgr = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        float streamVolumeCurrent = mgr.getStreamVolume(AudioManager.STREAM_MUSIC);
-        float streamVolumeMax = mgr.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        float volume = streamVolumeCurrent / streamVolumeMax;
-        int streamid = soundPool.play(soundId, volume, volume, 1, 0, 1);
+        if(-1 == streamid) {
+            streamid = soundPool.play(soundId, 1, 1, 1, -1, 1);
+        }else{
+            soundPool.stop(streamid);
+            streamid = -1;
+        }
     }
 
     class PlayAudioThread extends Thread{

@@ -1,17 +1,14 @@
 package com.test.touchevent;
 
 import android.app.Activity;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.VelocityTrackerCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.view.VelocityTrackerCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
-import com.lidroid.xutils.view.annotation.ViewInject;
 import com.mplanet.testhandler.R;
 
 @ContentView(R.layout.activity_velocity_tracker)

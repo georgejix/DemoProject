@@ -1,14 +1,12 @@
 package com.test.thread;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.mplanet.testhandler.R;
-import com.test.util.HttpURLConnectionUtil;
 
 import java.util.concurrent.CountDownLatch;
 

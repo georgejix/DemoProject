@@ -2,7 +2,6 @@ package com.test.checkbox;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
 

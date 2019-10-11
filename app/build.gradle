@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.2"
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.mplanet.testhandler"
@@ -41,16 +41,16 @@ repositories {
     }
 }
 dependencies {
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     //compile files('libs/xUtils-2.6.14.jar')
-    compile files('libs/gson-2.3.1.jar')
-    compile files('libs/opencv-library-2.4.5.jar')
-    compile files('libs/commons-net-3.6.jar')
-    compile files('libs/xUtils-2.6.14.jar')
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.jakewharton:disklrucache:2.0.2'
-    testCompile 'junit:junit:4.12'
+    implementation files('libs/gson-2.3.1.jar')
+    implementation files('libs/opencv-library-2.4.5.jar')
+    implementation files('libs/commons-net-3.6.jar')
+    implementation files('libs/xUtils-2.6.14.jar')
+    implementation files('libs/okhttp-3.4.1.jar')
+    implementation files('libs/okio-1.10.0.jar')
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.jakewharton:disklrucache:2.0.2'
+    testImplementation 'junit:junit:4.12'
 }

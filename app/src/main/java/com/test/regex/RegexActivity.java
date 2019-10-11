@@ -1,12 +1,10 @@
 package com.test.regex;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
-import com.lidroid.xutils.view.annotation.ViewInject;
 import com.mplanet.testhandler.R;
 
 import java.util.regex.Matcher;

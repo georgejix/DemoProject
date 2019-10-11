@@ -1,9 +1,7 @@
 package com.test.camera;
 
-import android.app.Activity;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;

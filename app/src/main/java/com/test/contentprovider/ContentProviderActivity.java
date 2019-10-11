@@ -2,7 +2,6 @@ package com.test.contentprovider;
 
 import android.content.ContentValues;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -11,8 +10,6 @@ import com.BaseActivity;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.mplanet.testhandler.R;
-
-import java.util.Random;
 
 @ContentView(R.layout.activity_content_provider)
 public class ContentProviderActivity extends BaseActivity {

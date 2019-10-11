@@ -507,6 +507,26 @@
                 android:text="camera3"
                 android:textSize="25sp"/>
 
+            <TextView
+                android:id="@+id/mp4toyuv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="mp4转yuv"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/okhttp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="okhttp"
+                android:textSize="25sp"/>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

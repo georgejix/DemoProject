@@ -38,6 +38,7 @@ import com.test.dialogactivity.DialogActivity;
 import com.test.ftp.FtpActivity;
 import com.test.handler.TestHandlerActivity;
 import com.test.http.HttpActivity;
+import com.test.http.OkHttpActivity;
 import com.test.intentservice.RSSPullService;
 import com.test.jpeg.JpegYuvRgbActivity;
 import com.test.keyboardinput.InputActivity;
@@ -64,6 +65,7 @@ import com.test.view.TestSomeViewActivity;
 import com.test.view.TrapezoidLayoutActivity;
 import com.test.xml.TestXmlActivity;
 import com.test.touchevent.TouchEvent2Activity;
+import com.test.yuv.Mp4ToYuvActivity;
 import com.test.yuv.YuvToBitmapActivity;
 
 import java.util.ArrayList;
@@ -111,9 +113,16 @@ public class MainActivity extends BaseActivity {
             R.id.textview_calendar, R.id.textview_calendarbypop, R.id.textview_bezier, R.id.textview_sqlite,
             R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl, R.id.梯形layout,
             R.id.自定义handler, R.id.自定义view, R.id.ftp, R.id.save_sp, R.id.mediaplayer,
-            R.id.yuvtobitmap, R.id.jpeg, R.id.camera2, R.id.camera3})
+            R.id.yuvtobitmap, R.id.jpeg, R.id.camera2, R.id.camera3, R.id.mp4toyuv,
+            R.id.okhttp})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.okhttp:
+                startActivity(new Intent(this, OkHttpActivity.class));
+                break;
+            case R.id.mp4toyuv:
+                startActivity(new Intent(this, Mp4ToYuvActivity.class));
+                break;
             case R.id.camera3:
                 startActivity(new Intent(this, Camera3Activity.class));
                 break;

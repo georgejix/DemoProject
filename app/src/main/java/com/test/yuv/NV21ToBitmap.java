@@ -15,9 +15,19 @@ public class NV21ToBitmap {
     private ScriptIntrinsicYuvToRGB yuvToRgbIntrinsic;
     private Type.Builder yuvType, rgbaType;
     private Allocation in, out;
-    private static final int YUV_WIDTH = 1280;
-    private static final int YUV_HIGHT = 720;
+    private int YUV_WIDTH = 1280;
+    private int YUV_HIGHT = 720;
     Matrix matrix;
+    public NV21ToBitmap(Context context, int imageViewWidth, int imageViewHeight, int width, int height) {
+        rs = RenderScript.create(context);
+        YUV_WIDTH = width;
+        YUV_HIGHT = height;
+        yuvToRgbIntrinsic = ScriptIntrinsicYuvToRGB.create(rs, Element.U8_4(rs));
+        float scaleWidth = ((float) imageViewWidth) / YUV_WIDTH;
+        float scaleHeight = ((float) imageViewHeight) / YUV_HIGHT;
+        matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+    }
     public NV21ToBitmap(Context context, int imageViewWidth, int imageViewHeight) {
         rs = RenderScript.create(context);
         yuvToRgbIntrinsic = ScriptIntrinsicYuvToRGB.create(rs, Element.U8_4(rs));

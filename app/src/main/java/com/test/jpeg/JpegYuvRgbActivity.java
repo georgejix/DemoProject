@@ -1,7 +1,5 @@
 package com.test.jpeg;
 
-import android.graphics.YuvImage;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.BaseActivity;
