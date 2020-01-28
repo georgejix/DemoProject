@@ -26,4 +26,6 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <string name="action_settings">Settings</string>
 </resources>

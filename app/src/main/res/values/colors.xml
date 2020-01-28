@@ -20,4 +20,8 @@
     <color name="yellow">#F49F5F</color>
     <color name="a">#f49e42</color>
     <color name="b">#429ef4</color>
+
+    <color name="parent_background">#E0F7FA</color>
+    <color name="child_background">#FFFFFF</color>
+    <color name="hf_background">#F5F5F5</color>
 </resources>

@@ -88,3 +88,10 @@ phonewindow.setContentView()->mContentParent.requestApplyInsets()->view.requestA
 ->viewrootimpl.scheduleTraversals()->handler.send(mTraversalRunnable)->viewrootimpl.doTraversal()->viewrootimpl.performTraversals()->viewrootimpl.performLayout()
 ->host.layout()
 使用handler，getwidth()时,view未绘画完成
+
+//获取动态实例化的textview的宽高
+int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+textView.measure(w, h);
+int tvh = textView.getMeasuredHeight();
+int tvw = textView.getMeasuredWidth();

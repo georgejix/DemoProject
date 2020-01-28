@@ -21,6 +21,7 @@ import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.test.activity.TestActivityActivity;
 import com.test.aidl.AidlActivity;
+import com.test.angleTextView.AngleTextViewActivity;
 import com.test.animation.TestAnimationActivity;
 import com.test.audio.MediaPlayerActivity;
 import com.test.bitmap.TestBitmapActivity;
@@ -35,6 +36,7 @@ import com.test.contentprovider.ContentProviderActivity;
 import com.test.countdownlatch.TestHandlerActivity2;
 import com.test.deviceawake.DeviceAwakeActivity;
 import com.test.dialogactivity.DialogActivity;
+import com.test.expandable.ExpandableActivity;
 import com.test.ftp.FtpActivity;
 import com.test.handler.TestHandlerActivity;
 import com.test.http.HttpActivity;
@@ -42,10 +44,13 @@ import com.test.http.OkHttpActivity;
 import com.test.intentservice.RSSPullService;
 import com.test.jpeg.JpegYuvRgbActivity;
 import com.test.keyboardinput.InputActivity;
+import com.test.loading.LoadingActivity;
 import com.test.net.TestNetActivity;
+import com.test.nfc.NfcActivity;
 import com.test.notification.NotificationActivity;
 import com.test.nsd.TestNsdActivity;
 import com.test.opengles.OpenglesActivity01;
+import com.test.recyclerview.RecyclerViewActivity;
 import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
 import com.test.regex.RegexActivity;
 import com.test.service.ServiceActivity;
@@ -114,9 +119,25 @@ public class MainActivity extends BaseActivity {
             R.id.textview_contentprovider, R.id.textview_service, R.id.textview_aidl, R.id.梯形layout,
             R.id.自定义handler, R.id.自定义view, R.id.ftp, R.id.save_sp, R.id.mediaplayer,
             R.id.yuvtobitmap, R.id.jpeg, R.id.camera2, R.id.camera3, R.id.mp4toyuv,
-            R.id.okhttp})
+            R.id.okhttp, R.id.expandablelistview, R.id.loading, R.id.recyclerview, R.id.angleTextView,
+            R.id.nfc})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.nfc:
+                startActivity(new Intent(this, NfcActivity.class));
+                break;
+            case R.id.angleTextView:
+                startActivity(new Intent(this, AngleTextViewActivity.class));
+                break;
+            case R.id.recyclerview:
+                startActivity(new Intent(this, RecyclerViewActivity.class));
+                break;
+            case R.id.loading:
+                startActivity(new Intent(this, LoadingActivity.class));
+                break;
+            case R.id.expandablelistview:
+                startActivity(new Intent(this, ExpandableActivity.class));
+                break;
             case R.id.okhttp:
                 startActivity(new Intent(this, OkHttpActivity.class));
                 break;

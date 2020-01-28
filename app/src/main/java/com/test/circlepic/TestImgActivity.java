@@ -19,7 +19,7 @@ public class TestImgActivity extends Activity {
     @ViewInject(R.id.img01)
     private ImageView img01;
     @ViewInject(R.id.img02)
-    private RoundView img02;
+    private RoundImageView img02;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

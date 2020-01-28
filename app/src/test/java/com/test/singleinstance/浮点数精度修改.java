@@ -22,6 +22,13 @@ public class 浮点数精度修改 {
         DecimalFormat format = new DecimalFormat("###0.00");//不以科学计数法显示，并把结果用逗号隔开保留两位小数
         BigDecimal bigDecimal = new BigDecimal(stt);
         System.out.println(format.format(stt) + "");
+
+        double d1 = 9.5;
+        double d2 = 0.5;
+        double d3 = d1 - d2;
+        System.out.println(d3 + "");
+        System.out.println(d3 == 9d);
+        System.out.println((d3 - (int)d3) == 0d);
     }
 
 }

@@ -50,7 +50,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.test.http.OkHttpActivity"></activity>
+        <activity android:name="com.test.nfc.NfcActivity"></activity>
+        <activity android:name="com.test.angleTextView.AngleTextViewActivity" />
+        <activity android:name="com.test.recyclerview.RecyclerViewActivity" />
+        <activity android:name="com.test.loading.LoadingActivity" />
+        <activity android:name="com.test.expandable.ExpandableActivity" />
+        <activity android:name="com.test.http.OkHttpActivity" />
         <activity android:name="com.test.yuv.Mp4ToYuvActivity" />
         <activity
             android:name="com.test.camera.Camera3Activity"

@@ -2,4 +2,8 @@
 <resources>
     <dimen name="mainTextSize">12sp</dimen>
     <dimen name="perLineHeight">20dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="padding_left">50dp</dimen>
 </resources>

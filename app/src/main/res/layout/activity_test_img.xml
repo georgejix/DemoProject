@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mplanet.testhandler.com.test.circlepic.TestImgActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal">
     <ImageView
@@ -24,7 +23,7 @@
             android:scaleType="fitXY"
             android:layout_height="50dp"
             android:src="@mipmap/pic4"/>
-        <com.test.circlepic.RoundView
+        <com.test.circlepic.RoundImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerInParent="true"
