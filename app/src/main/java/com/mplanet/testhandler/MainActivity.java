@@ -60,6 +60,7 @@ import com.test.swiperefresh.SwipeRefreshActivity;
 import com.test.systemphoto.ThumbnailActivity;
 import com.test.thread.ThreadActivity;
 import com.test.timer.TimerActivity;
+import com.test.touchevent.TouchEvent2Activity;
 import com.test.touchevent.TouchEventActivity;
 import com.test.touchevent.VelocityTrackerActivity;
 import com.test.transparentactivity.TransparentActivity;
@@ -69,7 +70,6 @@ import com.test.view.ImageViewActivity;
 import com.test.view.TestSomeViewActivity;
 import com.test.view.TrapezoidLayoutActivity;
 import com.test.xml.TestXmlActivity;
-import com.test.touchevent.TouchEvent2Activity;
 import com.test.yuv.Mp4ToYuvActivity;
 import com.test.yuv.YuvToBitmapActivity;
 
@@ -77,13 +77,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ContentView(R.layout.activity_main)
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity
+{
     private final String TAG = "MainActivity";
+
     int options;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+        // 避免从桌面启动程序后，会重新实例化入口类的activity
+        /*if (!this.isTaskRoot()) { // 当前类不是该Task的根部，那么之前启动
+            Intent intent = getIntent();
+            if (intent != null) {
+                String action = intent.getAction();
+                if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && Intent.ACTION_MAIN.equals(action)) { // 当前类是从桌面启动的
+                    finish(); // finish掉该类，直接打开该Task中现存的Activity
+                    return;
+                }
+            }
+        }*/
+
+        /*if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            finish();
+            return;
+        }*/
+
         checkPermission();
         //Log.d(TAG, "getFilesDir=" + getFilesDir().getAbsolutePath() + ",getCacheDir=" + getCacheDir().getAbsolutePath());
         //Log.d(TAG, "getExternalFilesDir=" + getExternalFilesDir("img"));
@@ -96,9 +116,11 @@ public class MainActivity extends BaseActivity {
                 // | View.SYSTEM_UI_FLAG_IMMERSIVE
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         getWindow().getDecorView().setSystemUiVisibility(options);
-        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
+        {
             @Override
-            public void onSystemUiVisibilityChange(int visibility) {
+            public void onSystemUiVisibilityChange(int visibility)
+            {
                 Log.d(TAG, "OnSystemUiVisibilityChangeListener");
             }
         });
@@ -121,8 +143,10 @@ public class MainActivity extends BaseActivity {
             R.id.yuvtobitmap, R.id.jpeg, R.id.camera2, R.id.camera3, R.id.mp4toyuv,
             R.id.okhttp, R.id.expandablelistview, R.id.loading, R.id.recyclerview, R.id.angleTextView,
             R.id.nfc})
-    private void onClick(View view) {
-        switch (view.getId()) {
+    private void onClick(View view)
+    {
+        switch (view.getId())
+        {
             case R.id.nfc:
                 startActivity(new Intent(this, NfcActivity.class));
                 break;
@@ -262,9 +286,12 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, TestImgActivity.class));
                 break;
             case R.id.textview_testfullscreen:
-                if (options != getWindow().getDecorView().getSystemUiVisibility()) {
+                if (options != getWindow().getDecorView().getSystemUiVisibility())
+                {
                     getWindow().getDecorView().setSystemUiVisibility(options);
-                } else {
+                }
+                else
+                {
                     int o = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                             View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
                     getWindow().getDecorView().setSystemUiVisibility(o);
@@ -305,7 +332,8 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
         Log.d("TestActivity", "MainActivity");
         getWindow().getDecorView().setSystemUiVisibility(options);
@@ -351,43 +379,53 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    private void checkPermission() {
+    private void checkPermission()
+    {
         List<String> permissionLists = new ArrayList<>();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) !=
-                PackageManager.PERMISSION_GRANTED) {
+                PackageManager.PERMISSION_GRANTED)
+        {
             permissionLists.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         }
         if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
-                PackageManager.PERMISSION_GRANTED) {
+                PackageManager.PERMISSION_GRANTED)
+        {
             permissionLists.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
         if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
-                PackageManager.PERMISSION_GRANTED) {
+                PackageManager.PERMISSION_GRANTED)
+        {
             permissionLists.add(Manifest.permission.CAMERA);
         }
         if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
-                PackageManager.PERMISSION_GRANTED) {
+                PackageManager.PERMISSION_GRANTED)
+        {
             permissionLists.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
-        if (Build.VERSION.SDK_INT>=23&& ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) !=
-                PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) !=
+                PackageManager.PERMISSION_GRANTED)
+        {
             permissionLists.add(Manifest.permission.RECORD_AUDIO);
         }
 
-        if (!permissionLists.isEmpty()) {//说明肯定有拒绝的权限
+        if (!permissionLists.isEmpty())
+        {//说明肯定有拒绝的权限
             ActivityCompat.requestPermissions(this, permissionLists.toArray(new String[permissionLists.size()]), 0);
         }
 
     }
 
-    private boolean isMainThread(){
+    private boolean isMainThread()
+    {
         //return  Looper.getMainLooper() == Looper.myLooper();
-        return  Looper.getMainLooper().getThread() == Thread.currentThread();
+        return Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
     @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+    public boolean onKeyUp(int keyCode, KeyEvent event)
+    {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK)
+        {
             AppManager.getAppManager().finishAllActivity();
             return true;
         }
