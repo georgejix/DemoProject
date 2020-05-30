@@ -38,7 +38,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         CrashHandler crashHandler = CrashHandler.getInstance();
-        crashHandler.init(getApplicationContext());
+        //捕获异常
+        //crashHandler.init(getApplicationContext());
     }
 
     public static String getFile(){

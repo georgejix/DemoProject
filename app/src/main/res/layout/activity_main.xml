@@ -4,19 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mplanet.testhandler.MainActivity"
-    android:orientation="vertical"
     android:animateLayoutChanges="true"
-    android:background="#2cc">
+    android:background="#2cc"
+    android:orientation="vertical"
+    tools:context="com.mplanet.testhandler.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/textview_next_page"
                 android:layout_width="match_parent"
@@ -25,7 +27,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="测试handler"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testactivity"
@@ -35,7 +37,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="activity生命周期，pop"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testcamera"
@@ -45,7 +47,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="camera预览"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testhandler"
@@ -55,7 +57,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="测试等待锁"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testbitmap"
@@ -65,7 +67,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="bitmap加载显示"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testopengles"
@@ -75,7 +77,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="opengles画图"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testanimation"
@@ -85,7 +87,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="animation动画"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testnsd"
@@ -95,7 +97,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="nsd开启，搜索"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testnet"
@@ -105,7 +107,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="wifi,蜂窝判断，有网无网"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testxml"
@@ -115,7 +117,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="XmlPull解析xml"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testfullscreen"
@@ -125,7 +127,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="隐藏系统栏，状态栏"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testimg"
@@ -135,7 +137,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="圆形img"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testswiperefresh"
@@ -145,7 +147,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="下拉刷新"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testrefreshandloadmore"
@@ -155,7 +157,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="下拉刷新,上拉加载"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testregex"
@@ -165,7 +167,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="正则表达式"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testmotionevent"
@@ -175,7 +177,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="触摸事件监听"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testvelocitytracker"
@@ -185,7 +187,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="触摸事件监听速度"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testinput"
@@ -195,7 +197,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="软键盘"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testintentservice"
@@ -205,7 +207,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="intentservice"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testsystemphoto"
@@ -215,7 +217,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="查询相册"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testdeviceawake"
@@ -225,7 +227,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="设备唤醒状态"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_testjni"
@@ -235,7 +237,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="testjni"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_transparant"
@@ -245,7 +247,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="透明activity"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_dialog"
@@ -255,7 +257,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="dialogactivity"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_checkbox"
@@ -265,7 +267,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="checkboxctivity"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_someview"
@@ -275,7 +277,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="someview"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_http"
@@ -285,7 +287,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="http"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_thread"
@@ -295,7 +297,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="thread"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_timer"
@@ -305,7 +307,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="timer"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_imageview"
@@ -315,7 +317,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="imageview"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_cutpic"
@@ -325,7 +327,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="cutpic"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_notification"
@@ -335,7 +337,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="notification"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_calendar"
@@ -345,7 +347,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="日历日期选择"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_calendarbypop"
@@ -355,7 +357,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="日历日期选择pop"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_bezier"
@@ -365,7 +367,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="贝塞尔曲线"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_sqlite"
@@ -375,7 +377,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="sqlite"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_contentprovider"
@@ -385,7 +387,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="contentprovider"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_service"
@@ -395,7 +397,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="service"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textview_aidl"
@@ -405,7 +407,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="aidl"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/梯形layout"
@@ -415,7 +417,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="梯形layout"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/自定义handler"
@@ -425,7 +427,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="自定义handler"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/自定义view"
@@ -435,7 +437,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="自定义view"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/ftp"
@@ -445,7 +447,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="ftp"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/save_sp"
@@ -455,7 +457,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="保存sharedpreference"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/mediaplayer"
@@ -465,7 +467,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="mediaplayer"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/yuvtobitmap"
@@ -475,7 +477,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="yuv转bitmap"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/jpeg"
@@ -485,7 +487,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="yuv,jpeg,rgb互转"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/camera2"
@@ -495,7 +497,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="camera2"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/camera3"
@@ -505,7 +507,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="camera3"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/mp4toyuv"
@@ -515,7 +517,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="mp4转yuv"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/okhttp"
@@ -525,7 +527,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="okhttp"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/expandablelistview"
@@ -535,7 +537,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="ExpandableListview"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/loading"
@@ -545,7 +547,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="loading"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/recyclerview"
@@ -555,7 +557,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="recyclerview"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/angleTextView"
@@ -565,7 +567,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="angleTextView"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/nfc"
@@ -575,7 +577,27 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="nfc"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/videoview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="videoview"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/surfaceview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="surfaceview"
+                android:textSize="25sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

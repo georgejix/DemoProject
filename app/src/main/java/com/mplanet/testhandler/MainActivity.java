@@ -72,6 +72,8 @@ import com.test.view.TrapezoidLayoutActivity;
 import com.test.xml.TestXmlActivity;
 import com.test.yuv.Mp4ToYuvActivity;
 import com.test.yuv.YuvToBitmapActivity;
+import com.videoview.SurfaceViewActivity;
+import com.videoview.VideoViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,11 +144,17 @@ public class MainActivity extends BaseActivity
             R.id.自定义handler, R.id.自定义view, R.id.ftp, R.id.save_sp, R.id.mediaplayer,
             R.id.yuvtobitmap, R.id.jpeg, R.id.camera2, R.id.camera3, R.id.mp4toyuv,
             R.id.okhttp, R.id.expandablelistview, R.id.loading, R.id.recyclerview, R.id.angleTextView,
-            R.id.nfc})
+            R.id.nfc, R.id.surfaceview, R.id.videoview})
     private void onClick(View view)
     {
         switch (view.getId())
         {
+            case R.id.videoview:
+                startActivity(new Intent(this, VideoViewActivity.class));
+                break;
+            case R.id.surfaceview:
+                startActivity(new Intent(this, SurfaceViewActivity.class));
+                break;
             case R.id.nfc:
                 startActivity(new Intent(this, NfcActivity.class));
                 break;

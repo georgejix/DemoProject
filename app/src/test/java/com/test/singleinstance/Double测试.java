@@ -7,6 +7,8 @@ import android.text.TextUtils;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 
 /**
@@ -27,6 +29,8 @@ public class Double测试
         System.out.println(filterAccuracyToString("100.0000120", 2));
         System.out.println(filterAccuracyToDouble(100.0000120, 2) + "");
         System.out.println(filterAccuracyToDouble(100.0000120, 2) + "");
+        System.out.println(filterAccuracyToString(999999900, 2));
+        System.out.println(filterUnUsefulAccuracy(0.01));
     }
 
     /**
@@ -46,7 +50,9 @@ public class Double测试
             double d2 = Double.valueOf(value.replaceAll("0*$", ""));
             if (d == d2)
             {
-                return String.valueOf(d2);
+                NumberFormat nf = NumberFormat.getInstance();
+                nf.setGroupingUsed(false);
+                return nf.format(d2);
             }
         } catch (Exception e)
         {
@@ -68,7 +74,9 @@ public class Double测试
             double d2 = Double.valueOf(valueStr.replaceAll("0*$", ""));
             if (d == d2)
             {
-                return String.valueOf(d2);
+                NumberFormat nf = NumberFormat.getInstance();
+                nf.setGroupingUsed(false);
+                return nf.format(d2);
             }
         } catch (Exception e)
         {
@@ -93,7 +101,9 @@ public class Double测试
         }
         BigDecimal bd = new BigDecimal(value);
         double result = bd.setScale(accuracy, BigDecimal.ROUND_HALF_UP).doubleValue();
-        return String.valueOf(result);
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setGroupingUsed(false);
+        return nf.format(result);
     }
 
     /**
@@ -131,7 +141,9 @@ public class Double测试
         {
             BigDecimal bd = new BigDecimal(value);
             double result = bd.setScale(accuracy, BigDecimal.ROUND_HALF_UP).doubleValue();
-            return String.valueOf(result);
+            NumberFormat nf = NumberFormat.getInstance();
+            nf.setGroupingUsed(false);
+            return nf.format(result);
         } catch (Exception e)
         {
         }
