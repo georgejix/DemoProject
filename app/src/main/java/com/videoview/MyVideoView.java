@@ -7,6 +7,7 @@ import android.widget.VideoView;
 
 public class MyVideoView extends VideoView
 {
+
     public MyVideoView(Context context)
     {
         super(context);
@@ -16,4 +17,12 @@ public class MyVideoView extends VideoView
     {
         super(context, attrs);
     }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas)
+    {
+        super.dispatchDraw(canvas);
+        //canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+    }
+
 }
