@@ -49,6 +49,7 @@ import com.test.net.TestNetActivity;
 import com.test.nfc.NfcActivity;
 import com.test.notification.NotificationActivity;
 import com.test.nsd.TestNsdActivity;
+import com.test.observer.ObserverActivity;
 import com.test.opengles.OpenglesActivity01;
 import com.test.recyclerview.RecyclerViewActivity;
 import com.test.refreshandloadmore.RefreshAndLoadMoreActivity;
@@ -144,11 +145,14 @@ public class MainActivity extends BaseActivity
             R.id.自定义handler, R.id.自定义view, R.id.ftp, R.id.save_sp, R.id.mediaplayer,
             R.id.yuvtobitmap, R.id.jpeg, R.id.camera2, R.id.camera3, R.id.mp4toyuv,
             R.id.okhttp, R.id.expandablelistview, R.id.loading, R.id.recyclerview, R.id.angleTextView,
-            R.id.nfc, R.id.surfaceview, R.id.videoview})
+            R.id.nfc, R.id.surfaceview, R.id.videoview, R.id.observer})
     private void onClick(View view)
     {
         switch (view.getId())
         {
+            case R.id.observer:
+                startActivity(new Intent(this, ObserverActivity.class));
+                break;
             case R.id.videoview:
                 startActivity(new Intent(this, VideoViewActivity.class));
                 break;

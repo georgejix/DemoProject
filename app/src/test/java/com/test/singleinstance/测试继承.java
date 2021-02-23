@@ -17,7 +17,7 @@ public class 测试继承 {
         System.out.println(a1.label);
         System.out.println("---");
 
-        测试继承A a2 = new 测试继承B();
+        测试继承A a2 = new 测试继承B(2);
         a2.show();
         System.out.println(a2.label);
         System.out.println("---");

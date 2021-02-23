@@ -4,14 +4,24 @@ package com.test.singleinstance;
  * Created by Administrator on 2018/12/28.
  */
 
-public class 测试继承A {
+public class 测试继承A
+{
     private final String TAG = "测试继承";
 
     public String label = "两个接口函数重名的实现";
-    public void show(){
+
+    public void show()
+    {
         System.out.println(TAG + "两个接口函数重名的实现");
     }
-    测试继承A(){
+
+    测试继承A()
+    {
         System.out.println("构造函数A");
+    }
+
+    测试继承A(int i)
+    {
+        System.out.println("构造函数A" + i);
     }
 }
