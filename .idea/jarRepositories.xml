@@ -36,5 +36,20 @@
       <option name="name" value="$PROJECT_DIR$/../../../env/android-sdk_r24.4.1-linux/android-sdk-linux/extras/m2repository" />
       <option name="url" value="file:$PROJECT_DIR$/../../../env/android-sdk_r24.4.1-linux/android-sdk-linux/extras/m2repository/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/m2repository" />
+      <option name="name" value="$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/m2repository" />
+      <option name="url" value="file:$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/m2repository" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/android/m2repository" />
+      <option name="name" value="$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/android/m2repository" />
+      <option name="url" value="file:$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/android/m2repository" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/google/m2repository" />
+      <option name="name" value="$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/google/m2repository" />
+      <option name="url" value="file:$PROJECT_DIR$/../../../../env/sdk/android-sdk_r24.4.1-linux/android-sdk-linux/extras/google/m2repository" />
+    </remote-repository>
   </component>
 </project>
