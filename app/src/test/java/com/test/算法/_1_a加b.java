@@ -2,12 +2,12 @@ package com.test.算法;
 
 import org.junit.Test;
 
-public class a加b
+public class _1_a加b
 {
     @Test
     public void test()
     {
-        System.out.println(sum(500, 656));
+        System.out.println(sum(-500, 656));
     }
 
     private int sum(int a, int b)
