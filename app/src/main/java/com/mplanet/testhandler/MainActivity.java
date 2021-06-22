@@ -24,6 +24,7 @@ import com.test.aidl.AidlActivity;
 import com.test.angleTextView.AngleTextViewActivity;
 import com.test.animation.TestAnimationActivity;
 import com.test.audio.MediaPlayerActivity;
+import com.test.autoline.AutoLineActivity;
 import com.test.bitmap.TestBitmapActivity;
 import com.test.camera.Camera2Activity;
 import com.test.camera.Camera3Activity;
@@ -145,11 +146,14 @@ public class MainActivity extends BaseActivity
             R.id.自定义handler, R.id.自定义view, R.id.ftp, R.id.save_sp, R.id.mediaplayer,
             R.id.yuvtobitmap, R.id.jpeg, R.id.camera2, R.id.camera3, R.id.mp4toyuv,
             R.id.okhttp, R.id.expandablelistview, R.id.loading, R.id.recyclerview, R.id.angleTextView,
-            R.id.nfc, R.id.surfaceview, R.id.videoview, R.id.observer})
+            R.id.nfc, R.id.surfaceview, R.id.videoview, R.id.observer, R.id.autoline})
     private void onClick(View view)
     {
         switch (view.getId())
         {
+            case R.id.autoline:
+                startActivity(new Intent(this, AutoLineActivity.class));
+                break;
             case R.id.observer:
                 startActivity(new Intent(this, ObserverActivity.class));
                 break;

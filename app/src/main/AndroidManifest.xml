@@ -50,7 +50,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.test.observer.ObserverActivity"></activity>
+        <activity android:name="com.test.autoline.AutoLineActivity"></activity>
+        <activity android:name="com.test.observer.ObserverActivity" />
         <activity android:name="com.videoview.VideoViewActivity" />
         <activity android:name="com.videoview.SurfaceViewActivity" />
         <activity android:name="com.test.nfc.NfcActivity" />
